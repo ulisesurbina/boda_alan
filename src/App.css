@@ -263,32 +263,32 @@
 .item1 {
   grid-row: span 3;
   /* background-color: red; */
-  background-image: url(../public/imgBody12.png);
+  background-image: url(./assets/imgBody12.png);
 }
 .item2 {
   grid-row: span 2;
   /* background-color: rgb(94, 188, 51); */
-  background-image: url(../public/imgBody13.png);
+  background-image: url(./assets/imgBody13.png);
 }
 .item3 {
   grid-row: span 3;
   /* background-color: rgb(58, 77, 170); */
-  background-image: url(../public/imgBody14.png);
+  background-image: url(./assets/imgBody14.png);
 }
 .item4 {
   grid-row: span 3;
   /* background-color: rgb(196, 45, 215); */
-  background-image: url(../public/imgBody15.png);
+  background-image: url(./assets/imgBody15.png);
 }
 .item5 {
   grid-row: span 2;
   /* background-color: rgb(42, 137, 42); */
-  background-image: url(../public/imgBody16.png);
+  background-image: url(./assets/imgBody16.png);
 }
 .item6 {
   grid-row: span 2;
   /* background-color: rgb(167, 172, 33); */
-  background-image: url(../public/imgBody17.png);
+  background-image: url(./assets/imgBody17.png);
 }
 .EventGridContainer_img {
   width: 25%;

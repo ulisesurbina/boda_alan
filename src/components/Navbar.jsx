@@ -1,11 +1,13 @@
 import '../styles/Navbar.css'
+import logo from '../assets/logo_sinBG.png'
+
 function Navbar() {
 
   return (
     <div className="NavbarContainer">
       <section className='NavbarContainer__principal'>
         <figure>
-            <img src="../../public/logo_sinBG.png" alt="logo boda" />
+            <img src={logo} alt="logo boda" />
         </figure>
         <div className='NavbarContainer__section'>
             <a href=''>Inicio</a>

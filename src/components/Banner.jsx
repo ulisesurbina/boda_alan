@@ -1,11 +1,12 @@
 import '../App.css'
+import hero from '../assets/hero.png'
 
 function Banner() {
 
   return (
     <section className='ContainerBannerGeneral'>
       <div className='HeroBanner'>
-        <img src="../../public/hero.png" alt="test" />
+        <img src={hero} alt="test" />
         <div className='ContenidoBanner'>
           <h2>Araceli & Alan</h2>
           <h3>18 Octubre 2025</h3>
