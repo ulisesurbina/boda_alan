@@ -301,3 +301,41 @@
     object-fit: cover;
   }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .LocationContainer {
+    flex-direction: column;
+    padding: 5% 0;
+    gap: 2rem;
+  }
+  .LocationContainer_flowers {
+    width: 85% !important;
+    position: relative !important;
+    transform: translate(-50%, 0%) !important;
+    -webkit-transform: translate(-50%, 0%) !important;
+    -moz-transform: translate(-50%, 0%) !important;
+    -ms-transform: translate(-50%, 0%) !important;
+    -o-transform: translate(-50%, 0%) !important;
+  }
+  .LocationContainer_circle {
+    width: 64% !important;
+  }
+  .LocationContainer_text {
+      width: 85% !important;
+      text-align: center;
+  }
+  .GalleryContainer {
+    width: 85% !important;
+  }
+  .GalleryContainer_principal {
+    flex-direction: column;
+  }
+  .GalleryContainer_text {
+    width: 100% !important;
+  }
+  .GalleryContainer_imgs {
+    width: 60% !important;
+    margin: 0 auto;
+  }
+  
+}

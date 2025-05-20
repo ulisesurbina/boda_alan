@@ -17,6 +17,7 @@
     grid-template-columns: repeat(6, 1fr);
     align-items: center;
     justify-items: center;
+    text-align: center;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
