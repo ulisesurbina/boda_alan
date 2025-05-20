@@ -1,0 +1,40 @@
+
+.NavbarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    /* position: relative; */
+    margin: auto;
+    z-index: 99999999;
+    /* height: 8vh; */
+}
+
+.NavbarContainer__principal {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    justify-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    & figure {
+        width: 30%;
+        height: 100%;
+        margin: 0 auto;
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.NavbarContainer__section {
+    & a:hover {
+        color: #99631D;
+    }
+}
