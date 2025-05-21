@@ -39,3 +39,8 @@
         color: #99631D;
     }
 }
+
+@media screen and (max-width: 767px) {
+  .NavbarContainer__section {
+  }
+}

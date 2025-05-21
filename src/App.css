@@ -161,6 +161,7 @@
       position: relative;
       & figure {
         width: 100%;
+        line-height: 0;
         & img {
           width: 100%;
           height: 100%;
@@ -307,35 +308,181 @@
     flex-direction: column;
     padding: 5% 0;
     gap: 2rem;
-  }
-  .LocationContainer_flowers {
-    width: 85% !important;
-    position: relative !important;
-    transform: translate(-50%, 0%) !important;
-    -webkit-transform: translate(-50%, 0%) !important;
-    -moz-transform: translate(-50%, 0%) !important;
-    -ms-transform: translate(-50%, 0%) !important;
-    -o-transform: translate(-50%, 0%) !important;
-  }
-  .LocationContainer_circle {
-    width: 64% !important;
-  }
-  .LocationContainer_text {
-      width: 85% !important;
+    & .LocationContainer_containerImg {
+      & .LocationContainer_flowers {
+        width: 85%;
+        position: relative;
+        transform: translate(-50%, 0%);
+      }
+      & .LocationContainer_circle {
+        width: 64%;
+      }
+    }
+    & .LocationContainer_text {
+      width: 85%;
       text-align: center;
+    }
   }
   .GalleryContainer {
-    width: 85% !important;
+    width: 85%;
+    & .GalleryContainer_principal {
+      flex-direction: column;
+      & .GalleryContainer_text {
+        width: 100%;
+      }
+      & .GalleryContainer_imgs {
+        width: 60%;
+        margin: 0 auto;
+      }
+    }
   }
-  .GalleryContainer_principal {
+}
+
+@media screen and (max-width: 767px) {
+  .ContenidoBanner {
+    top: 56%;
+    & h2 {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+    & h3 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    & h4 {
+      font-size: 1.3rem;
+      line-height: 1.8rem;
+    }
+  }
+  .HistoryContainer_flowers {
+    width: 80%;
+  }
+  .HistoryContainer {
+    width: 87%;
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    & p {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    & .HistoryContainer_img {
+        width: 100%;
+    }
+  }
+  .LocationContainer {
     flex-direction: column;
+    padding: 2rem 0;
+    margin: 3rem auto;
+    gap: 2rem;
+    & .LocationContainer_containerImg {
+      width: 65%;
+      & .LocationContainer_flowers {
+        width: 100%;
+        position: relative;
+        transform: translate(-50%, 0%);
+      }
+      & .LocationContainer_circle {
+        width: 76%;
+      }
+    }
+    & .LocationContainer_text {
+      width: 87%;
+      text-align: center;
+      & h2 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+      }
+      & h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+    }
   }
-  .GalleryContainer_text {
-    width: 100% !important;
+  .GalleryContainer {
+    width: 87%;
+    margin: 3rem auto;
+    & .GalleryContainer_principal {
+      flex-direction: column;
+      justify-content: space-around;
+      & .GalleryContainer_text {
+        width: 100%;
+        & h2 {
+          font-size: 2.5rem;
+          line-height: 3rem;
+        }
+        & p {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+        & ul {
+          & li {
+            font-size: 1.5rem;
+            line-height: 2rem;
+          }
+        }
+      }
+      & .GalleryContainer_imgs {
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+    & .GalleryContainer_principalImg {
+      top: 86%;
+      left: 57%;
+      width: 52%;
+    }
   }
-  .GalleryContainer_imgs {
-    width: 60% !important;
-    margin: 0 auto;
+}
+.GiftTableContainer {
+  width: 87%;
+  margin: 3rem auto;
+  & h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
   }
-  
+  & .GiftTableContainer_grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    & .GiftTableContainer_gridItem {
+      & div {
+        & h3 {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+}
+.DressCodeContainer {
+    width: 87%;
+    margin: 3rem auto;
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    & .DressCodeContainer_position {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      & .DressCodeContainer_position_img {
+        width: 100%;
+        line-height: 0;
+      }
+      & .DressCodeContainer_position_text {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 80%;
+        min-height: auto;
+        display: flex;
+        padding: 1rem 2rem;
+        transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+      }
+    }
 }
