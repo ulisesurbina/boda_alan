@@ -1,3 +1,4 @@
+import Stepper, { Step } from '../components/Stepper';
 import '../App.css'
 import flowers from '../assets/flowers.png'
 import imgBody1 from '../assets/imgBody1.png'
@@ -118,8 +119,61 @@ function Body() {
                 <img src={flower45} alt="flores inclinada" />
             </figure>
         </section>
-        <section className=''>
+        <section className='FormContainer'>
             <h2>Confirma tu Asistencia</h2>
+            <section>
+                <Stepper
+                    initialStep={1}
+                    onStepChange={(step) => {
+                        console.log(step);
+                    }}
+                    onFinalStepCompleted={() => console.log("All steps completed!")}
+                    backButtonText="Previous"
+                    nextButtonText="Next"
+                    >
+                    <Step>
+                        <h3>Agradecemos tu interes</h3>
+                        <p>Sigue los siguientes pasos para tu registro</p>
+                    </Step>
+                    <Step>
+                        <h3>El evento es privado, no se puede acceder sin registro ni invitación</h3>
+                        <p>*Pueden surgir cambios sin previo aviso</p>
+                        <h3>Ingresa los datos solicitados</h3>
+                        {/* <img style={{ height: 'auto', width: '100%', objectFit: 'cover', objectPosition: 'center', borderRadius: '1rem', marginTop: '0rem' }} src="https://www.purrfectcatgifts.co.uk/cdn/shop/collections/Funny_Cat_Cards_640x640.png?v=1663150894" /> */}
+                        <input placeholder="Nombre" />
+                        <input placeholder="Apellidos" />
+                        <input placeholder="Número de teléfono" />
+                        <input placeholder="Correo" />
+                        <input placeholder="No. invitados (Incluido tú)" />
+                        <input placeholder="Otra cosa" />
+
+                    </Step>
+                    <Step>
+                        <h3>¿Tienes alguna duda respecto al evento?</h3>
+                        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your questions" />
+                    </Step>
+                    <Step>
+                        <h3>Gracias por registrarte</h3>
+                        <p>Espera próximas noticias en tu Correo o Whatsapp</p>
+                    </Step>
+                </Stepper>
+            </section>
+            {/* <section>
+                <form>
+                    <div className='FormContainer_input'>
+                        <input type="text" placeholder='Nombre' />
+                        <input type="text" placeholder='Apellido' />
+                    </div>
+                    <div className='FormContainer_input'>
+                        <input type="email" placeholder='Email' />
+                        <input type="tel" placeholder='Teléfono' />
+                    </div>
+                    <div className='FormContainer_input'>
+                        <textarea name="" id="" cols="30" rows="10" placeholder='Mensaje'></textarea>
+                    </div>
+                    <button>Enviar</button>
+                </form>
+            </section> */}
         </section>
     </div>
   )

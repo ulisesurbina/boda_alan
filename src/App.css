@@ -1,7 +1,5 @@
 .ContainerBannerGeneral {
   width: 100%;
-  /* position: relative;
-  top: 0; */
 }
 .HeroBanner {
   position: relative;
@@ -13,9 +11,29 @@
     object-fit: cover;
   }
 }
+.ContainerPrincipalTitle {
+  overflow: hidden;
+  padding: 0 0.6rem;
+}
+.PrincipalTitle {
+  font-size: 3.5vw;
+  line-height: 4vw;
+  font-weight: bold;
+  background-color: cyan;
+  width: fit-content;
+  padding-top: 0.5rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
 .ContenidoBanner {
   width: 90%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -24,8 +42,19 @@
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
-  &.ContenidoBanner_texto {
+  & h3 {
+    font-size: 2.5vw;
+    line-height: 3vw;
+  }
+  & h4 {
+    font-size: 1.7vw;
+    line-height: 2.2vw;
+  }
+  & .ContenidoBanner_texto {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 }
 .BodyContainer {
@@ -33,11 +62,22 @@
 }
 .HistoryContainer {
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin: 5% auto 8% auto;
   text-align: center;
+  & h2 {
+    font-size: 3.5vw;
+    line-height: 4vw;
+  }
+  & p {
+    font-size: 2.1vw;
+    line-height: 2.6vw;
+  }
   & .HistoryContainer_img {
-    width: 50%;
-    margin: 0 auto;
+    width: 60%;
+    margin: 2% auto;
     & img {
       width: 100%;
       height: 100%;
@@ -46,8 +86,8 @@
   }
 }
 .HistoryContainer_flowers {
-  width: 10%;
-  margin: 0 auto;
+  width: 30%;
+  margin: 1% auto;
   & img {
     width: 100%;
     height: 100%;
@@ -102,6 +142,17 @@
   }
   & .LocationContainer_text {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    & h2 {
+      font-size: 3.5vw;
+      line-height: 4vw;
+    }
+    & h3 {
+      font-size: 2.1vw;
+      line-height: 2.6vw;
+    }
   }
 }
 
@@ -123,6 +174,17 @@
     justify-content: space-around;
     & .GalleryContainer_text {
       width: 40%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      & h2 {
+        font-size: 3.5vw;
+        line-height: 4vw;
+      }
+      & p, ul {
+        font-size: 2.1vw;
+        line-height: 2.6vw;
+      }
     }
     & .GalleryContainer_imgs {
       width: 40%;
@@ -151,6 +213,11 @@
   flex-direction: column;
   align-items: center;
   margin: 8% auto;
+  gap: 1rem;
+  & h2 {
+    font-size: 3.5vw;
+    line-height: 4vw;
+  }
   & .GiftTableContainer_grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -162,6 +229,7 @@
       & figure {
         width: 100%;
         line-height: 0;
+        margin: 0 auto;
         & img {
           width: 100%;
           height: 100%;
@@ -189,6 +257,13 @@
         -o-border-radius: 0.5rem;
         & h3 {
           text-align: center;
+          font-size: 2.1vw;
+          line-height: 2.6vw;
+        }
+        & svg {
+          width: auto;
+          height: 80%;
+          object-fit: contain;
         }
       }
     }
@@ -201,13 +276,18 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  & h2 {
+    font-size: 3.5vw;
+    line-height: 4vw;
+  }
   & .DressCodeContainer_position {
     position: relative;
     display: flex;
     margin: 0 auto;
+    margin-left: 10%;
     width: 60%;
     & .DressCodeContainer_position_img {
-      width: 64%;
+      width: 65%;
       & img {
         width: 100%;
         height: 100%;
@@ -217,7 +297,7 @@
     & .DressCodeContainer_position_text {
       position: absolute;
       top: 50%;
-      left: 70%;
+      left: 90%;
       width: 60%;
       min-height: 40vh;
       display: flex;
@@ -232,12 +312,17 @@
       -ms-transform: translate(-50%, -50%);
       -o-transform: translate(-50%, -50%);
       & .DressCodeContainer_position_flowers {
-        width: 20%;
+        width: 50%;
+        margin: 2% auto;
         & img {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
+      }
+      & p {
+        font-size: 2.1vw;
+        line-height: 2.6vw;
       }
     }
   }
@@ -245,14 +330,18 @@
 .EventGridContainer {
   position: relative;
   width: 100%;
-  margin: 5% auto 15% auto;
+  margin: 8% auto;
   text-align: center;
+  & h2 {
+    font-size: 3.5vw;
+    line-height: 4vw;
+  }
   & .EventGridContainer_imgGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 20vh;
-    gap: 10px;
-    max-width: 80%;
+    gap: 1rem;
+    max-width: 70%;
     margin: auto;
   }
 }
@@ -294,12 +383,24 @@
 .EventGridContainer_img {
   width: 25%;
   position: absolute;
-  top: 85%;
+  top: 84%;
   left: 0%;
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+.FormContainer {
+  width: 100%;
+  margin: 8% auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  & h2 {
+    font-size: 3.5vw;
+    line-height: 4vw;
   }
 }
 
@@ -321,30 +422,147 @@
     & .LocationContainer_text {
       width: 85%;
       text-align: center;
+      & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+      }
+      & h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
     }
   }
   .GalleryContainer {
-    width: 85%;
+    width: 88%;
+    margin: 5% auto 13% auto;
     & .GalleryContainer_principal {
       flex-direction: column;
       & .GalleryContainer_text {
         width: 100%;
+        & h2 {
+          font-size: 2.5rem;
+          line-height: 3rem;
+        }
+        & p, ul {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
       }
       & .GalleryContainer_imgs {
-        width: 60%;
+        width: 50%;
         margin: 0 auto;
       }
+    }
+    & .GalleryContainer_principalImg {
+      top: 78%;
+      left: 60%;
+      width: 43%;
+    }
+  }
+  .PrincipalTitle {
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+  .ContenidoBanner {
+    & h3 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    & h4 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+  .HistoryContainer_flowers {
+    margin: 1rem auto;
+  }
+  .HistoryContainer {
+    width: 88%;
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    & p {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    & .HistoryContainer_img {
+      width: 60%;
+      margin: 1rem auto;
+    }
+  }
+  .GiftTableContainer {
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    & .GiftTableContainer_grid {
+      width: 100%;
+      & .GiftTableContainer_gridItem {
+        & div {
+          & h3 {
+            font-size: 1rem;
+            line-height: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+  .DressCodeContainer {
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    & .DressCodeContainer_position {
+      margin: 0;
+      margin-left: 4rem;
+      & .DressCodeContainer_position_img {
+        width: 100%;
+      }
+      & .DressCodeContainer_position_text {
+        top: 50%;
+        left: 100%;
+        & p {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+        & .DressCodeContainer_position_flowers {
+          width: 50%;
+        }
+      }
+    }
+  }
+  .EventGridContainer {
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+  }
+  .EventGridContainer_img {
+    top: 94%;
+  }
+  .FormContainer {
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+  }
+  .FormContainer {
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
     }
   }
 }
 
 @media screen and (max-width: 767px) {
+  .PrincipalTitle {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    padding-top: 0.7rem;
+  }
   .ContenidoBanner {
     top: 56%;
-    & h2 {
-      font-size: 2rem;
-      line-height: 2.5rem;
-    }
     & h3 {
       font-size: 1.5rem;
       line-height: 2rem;
@@ -355,7 +573,8 @@
     }
   }
   .HistoryContainer_flowers {
-    width: 80%;
+    width: 50%;
+    margin: 1rem auto;
   }
   .HistoryContainer {
     width: 87%;
@@ -377,7 +596,7 @@
     margin: 3rem auto;
     gap: 2rem;
     & .LocationContainer_containerImg {
-      width: 65%;
+      width: 50%;
       & .LocationContainer_flowers {
         width: 100%;
         position: relative;
@@ -424,38 +643,39 @@
         }
       }
       & .GalleryContainer_imgs {
-        width: 80%;
+        width: 60%;
         margin: 0 auto;
       }
     }
     & .GalleryContainer_principalImg {
-      top: 86%;
-      left: 57%;
-      width: 52%;
+      display: none;
     }
   }
-}
-.GiftTableContainer {
-  width: 87%;
-  margin: 3rem auto;
-  & h2 {
-    font-size: 2.5rem;
-    line-height: 3rem;
-  }
-  & .GiftTableContainer_grid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-    & .GiftTableContainer_gridItem {
-      & div {
-        & h3 {
-          font-size: 1.5rem;
-          line-height: 2rem;
+  .GiftTableContainer {
+    width: 87%;
+    margin: 3rem auto;
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    & .GiftTableContainer_grid {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      & .GiftTableContainer_gridItem {
+        & figure {
+          width: 70%;
+        }
+        & div {
+          width: 37%;
+          & h3 {
+            font-size: 1.5rem;
+            line-height: 2rem;
+          }
         }
       }
     }
   }
-}
-.DressCodeContainer {
+  .DressCodeContainer {
     width: 87%;
     margin: 3rem auto;
     & h2 {
@@ -466,8 +686,9 @@
       width: 100%;
       flex-direction: column;
       align-items: center;
+      margin-left: 0%;
       & .DressCodeContainer_position_img {
-        width: 100%;
+        width: 70%;
         line-height: 0;
       }
       & .DressCodeContainer_position_text {
@@ -483,6 +704,83 @@
         -moz-transform: none;
         -ms-transform: none;
         -o-transform: none;
+        & .DressCodeContainer_position_flowers {
+          width: 50%;
+        }
+        & p {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
       }
     }
+  }
+  .EventGridContainer {
+    margin: 5% auto;
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    & .EventGridContainer_imgGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .item5 {
+    grid-row: span 3;
+  }
+  .EventGridContainer_img {
+    display: none;
+  }
+   .FormContainer {
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .GalleryContainer {
+    & .GalleryContainer_principalImg {
+      top: 87%;
+    }
+    & .GalleryContainer_principal {
+      & .GalleryContainer_imgs {
+        width: 85%;
+      }
+    }
+  }
+  .LocationContainer {
+    & .LocationContainer_containerImg {
+      width: 80%;
+    }
+  }
+  .HistoryContainer_flowers {
+    width: 80%;
+  }
+  .DressCodeContainer {
+    & .DressCodeContainer_position {
+      & .DressCodeContainer_position_text {
+        width: 100%;
+        padding: 1rem;
+        & .DressCodeContainer_position_flowers {
+          width: 80%;
+        }
+      }
+      & .DressCodeContainer_position_img {
+        width: 100%;
+      }
+    }
+  }
+  .GiftTableContainer {
+    & .GiftTableContainer_grid {
+      & .GiftTableContainer_gridItem {
+        & figure {
+          width: 100%;
+        }
+        & div {
+          width: 50%;
+        }
+      }
+    }
+  }
 }
