@@ -1,4 +1,6 @@
 import RotatingText from './RotateText'
+import Countdown from '../utils/Countdown';
+
 import '../App.css'
 import '../styles/RotatingText.css'
 import hero from '../assets/hero.png'
@@ -25,9 +27,10 @@ function Banner() {
           {/* <h2>Araceli & Alan</h2> */}
           <h3>18 Octubre 2025</h3>
           <div className='ContenidoBanner_texto'>
-            <h3>¡Bienvenidos a nuestra historia de amor! ♥</h3>
-            <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Por favor confirma tu asistencia lo antes posible, <br /> así sabremos si contamos contigo para celebrar juntos. <br /> ¡Disfruta el sitio y esperamos verte muy pronto!</h4>
+            <h3>¡Bienvenidos a nuestra historia de amor! <span className="Heart">♥</span></h3>
+            <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Por favor confirma tu asistencia lo antes posible, <br /> así sabremos si contamos contigo para celebrar juntos. <br /> Disfruta el sitio y esperamos verte dentro de:</h4>
           </div>
+          <Countdown />
         </div>
       </div>
     </section>

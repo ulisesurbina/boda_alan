@@ -19,7 +19,7 @@
   font-size: 3.5vw;
   line-height: 4vw;
   font-weight: bold;
-  background-color: cyan;
+  /* background-color: cyan; */
   width: fit-content;
   padding-top: 0.5rem;
   border-radius: 1rem;
@@ -57,6 +57,19 @@
     gap: 1rem;
   }
 }
+
+.Heart {
+  animation: colorChange 5s infinite ease;
+  -webkit-animation: colorChange 5s infinite ease;
+}
+@keyframes colorChange {
+  0%   { color: #e63946; }   
+  25%  { color: #9627b2; }  
+  50%  { color: #2ecc71; }   
+  75%  { color: #3498db; }   
+  100% { color: #e63946; }
+}
+
 .BodyContainer {
   width: 100%;
 }

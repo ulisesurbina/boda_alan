@@ -1,0 +1,51 @@
+.CountdownContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    & span {
+        font-size: 1.7vw;
+        line-height: 2.2vw;
+    }
+    & div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        & h4, h5 {
+            font-size: 1.7vw;
+            line-height: 2.2vw;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .CountdownContainer {
+        gap: 0.5rem;
+        & span {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+        & div {
+            & h4, h5 {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .CountdownContainer {
+        gap: 0.5rem;
+        & span {
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+        }
+        & div {
+            & h4, h5 {
+                font-size: 1.3rem;
+                line-height: 1.8rem;
+            }
+        }
+    }
+}
