@@ -6,9 +6,9 @@ function Navbar() {
   return (
     <div className="NavbarContainer">
       <section className='NavbarContainer__principal'>
-        <figure>
+        <picture>
             <img src={logo} alt="logo boda" />
-        </figure>
+        </picture>
         <div className='NavbarContainer__section'>
             <a href=''>Inicio</a>
         </div>

@@ -22,7 +22,7 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    & figure {
+    & picture {
         width: 25%;
         height: 100%;
         margin: 0 auto;
@@ -51,7 +51,7 @@
         }
     }
     .NavbarContainer__principal {
-        & figure {
+        & picture {
             width: 40%;
         }
     }
@@ -65,7 +65,7 @@
         }
     }
     .NavbarContainer__principal {
-        & figure {
+        & picture {
             width: 70%;
         }
     }

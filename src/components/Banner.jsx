@@ -3,14 +3,14 @@ import Countdown from '../utils/Countdown';
 
 import '../App.css'
 import '../styles/RotatingText.css'
-import hero from '../assets/hero.png'
+import bannerMano from '../assets/boda_16.webp'
 
 function Banner() {
 
   return (
     <section className='ContainerBannerGeneral'>
       <div className='HeroBanner'>
-        <img src={hero} alt="test" />
+        <img src={bannerMano} alt="test" />
         <div className='ContenidoBanner'>
           <RotatingText
             texts={['Araceli & Alan', 'Alan & Araceli']}
@@ -24,11 +24,10 @@ function Banner() {
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             rotationInterval={5000}
           />
-          {/* <h2>Araceli & Alan</h2> */}
           <h3>18 Octubre 2025</h3>
           <div className='ContenidoBanner_texto'>
             <h3>¡Bienvenidos a nuestra historia de amor! <span className="Heart">♥</span></h3>
-            <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Por favor confirma tu asistencia lo antes posible, <br /> así sabremos si contamos contigo para celebrar juntos. <br /> Disfruta el sitio y esperamos verte dentro de:</h4>
+            <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Por favor confirma tu asistencia lo antes posible, <br /> así sabremos si contamos contigo para celebrar juntos. <br /> Esperamos verte dentro de:</h4>
           </div>
           <Countdown />
         </div>

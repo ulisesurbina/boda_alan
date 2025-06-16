@@ -9,7 +9,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+    filter: brightness(0.4);
+    -webkit-filter: brightness(0.4);
+}
 }
 .ContainerPrincipalTitle {
   overflow: hidden;
@@ -29,6 +31,7 @@
   -o-border-radius: 1rem;
 }
 .ContenidoBanner {
+  color: #F0E6FF;
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -95,7 +98,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
+}
   }
 }
 .HistoryContainer_flowers {
@@ -131,11 +134,17 @@
         & img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
-      }
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        }
     }
     & .LocationContainer_flowers {
-      width: 58%;
+      width: 65%;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -144,13 +153,13 @@
       -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       -o-transform: translate(-50%, -50%);
-      /* animation: rotateFlowers 10s linear infinite;
-      -webkit-animation: rotateFlowers 10s linear infinite; */
-        & img {
+      & img {
+        animation: rotateFlowers 20s linear infinite;
+        -webkit-animation: rotateFlowers 20s linear infinite;
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
+}
     }
   }
   & .LocationContainer_text {
@@ -239,7 +248,7 @@
     margin: 0 auto;
     & .GiftTableContainer_gridItem {
       position: relative;
-      & figure {
+      & picture {
         width: 100%;
         line-height: 0;
         margin: 0 auto;
@@ -366,32 +375,32 @@
 .item1 {
   grid-row: span 3;
   /* background-color: red; */
-  background-image: url(./assets/imgBody12.png);
+  background-image: url(./assets/boda_3.webp);
 }
 .item2 {
   grid-row: span 2;
   /* background-color: rgb(94, 188, 51); */
-  background-image: url(./assets/imgBody13.png);
+  background-image: url(./assets/boda_6.webp);
 }
 .item3 {
   grid-row: span 3;
   /* background-color: rgb(58, 77, 170); */
-  background-image: url(./assets/imgBody14.png);
+  background-image: url(./assets/boda_7.webp);
 }
 .item4 {
   grid-row: span 3;
   /* background-color: rgb(196, 45, 215); */
-  background-image: url(./assets/imgBody15.png);
+  background-image: url(./assets/boda_14.webp);
 }
 .item5 {
   grid-row: span 2;
   /* background-color: rgb(42, 137, 42); */
-  background-image: url(./assets/imgBody16.png);
+  background-image: url(./assets/boda_15.webp);
 }
 .item6 {
   grid-row: span 2;
   /* background-color: rgb(167, 172, 33); */
-  background-image: url(./assets/imgBody17.png);
+  background-image: url(./assets/boda_17.webp);
 }
 .EventGridContainer_img {
   width: 25%;
@@ -675,7 +684,7 @@
       grid-template-columns: repeat(1, 1fr);
       gap: 1rem;
       & .GiftTableContainer_gridItem {
-        & figure {
+        & picture {
           width: 70%;
         }
         & div {
@@ -787,7 +796,7 @@
   .GiftTableContainer {
     & .GiftTableContainer_grid {
       & .GiftTableContainer_gridItem {
-        & figure {
+        & picture {
           width: 100%;
         }
         & div {
