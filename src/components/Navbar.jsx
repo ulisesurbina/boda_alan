@@ -1,4 +1,5 @@
 import '../styles/Navbar.css'
+import { HashLink as Link } from 'react-router-hash-link';
 import logo from '../assets/logo_sinBG.png'
 
 function Navbar() {
@@ -7,22 +8,22 @@ function Navbar() {
     <div className="NavbarContainer">
       <section className='NavbarContainer__principal'>
         <picture>
-            <img src={logo} alt="logo boda" />
+          <img src={logo} alt="logo boda" />
         </picture>
         <div className='NavbarContainer__section'>
-            <a href=''>Inicio</a>
+          <Link to="/">Inicio</Link>
         </div>
         <div className='NavbarContainer__section'>
-            <a href=''>Sobre nosotros</a>
+          <Link to="/historia">Sobre nosotros</Link>
         </div>
         <div className='NavbarContainer__section'>
-            <a href=''>Confirma tu asistencia</a>
+          <Link to="/itinerario">Itinerario</Link>
         </div>
         <div className='NavbarContainer__section'>
-            <a href=''>Itinerario</a>
+          <Link smooth to="/#FormAbsolute">Confirma tu asistencia</Link>
         </div>
         <div className='NavbarContainer__section'>
-            <a href=''>Venue</a>
+          <Link smooth to="/#VenueMaps">Venue</Link>
         </div>
       </section>
     </div>

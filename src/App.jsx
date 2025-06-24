@@ -1,16 +1,23 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Navbar from './components/Navbar.jsx'
-import Banner from './components/Banner.jsx'
 import Body from './components/Body.jsx'
+import Footer from './components/Footer.jsx'
+import LandingHistoria from './pages/LandingHistoria.jsx';
+import LandingItinerario from './pages/LandingItinerario.jsx';
 
 function App() {
 
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Banner />
-      <Body />
-    </div>
+        <Routes>
+          <Route path="/" element={<Body />} />
+          <Route path="/historia" element={<LandingHistoria />} />
+          <Route path="/itinerario" element={<LandingItinerario />} />
+        </Routes>
+      <Footer />
+    </Router>
   )
 }
 

@@ -1,5 +1,8 @@
-import Stepper, { Step } from '../components/Stepper';
 import '../App.css'
+import Banner from './Banner';
+import { useState } from 'react';
+import Stepper, { Step } from '../components/Stepper';
+import { Link } from 'react-router-dom';
 import flowers from '../assets/flowers.png'
 import imgBody1 from '../assets/boda_12reflec.webp'
 import flowersCircle from '../assets/flowersCircle.png'
@@ -13,9 +16,48 @@ import imgBody12 from '../assets/boda_15.webp'
 import flower45 from '../assets/flower45.png'
 
 function Body() {
+    const [formData, setFormData] = useState({
+        nombre: '',
+        apellidos: '',
+        telefono: '',
+        correo: '',
+        invitados: '',
+        dudas: ''
+    });
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+    const sendToGoogleSheets = () => {
+        fetch("https://script.google.com/macros/s/AKfycbwR8bvOtfYItXpMJOsFcnv7m9U6DOma2ycFex1HvvD6iCS35UaDFSD0Gjbr3NfHGTMz/exec", {
+            method: "POST",
+            body: JSON.stringify(formData),
+            headers: {
+            "Content-Type": "application/json",
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log("Registro exitoso:", data);
+            alert("Tus datos fueron registrados. ¡Gracias!");
+            setFormData({
+            nombre: '',
+            apellidos: '',
+            telefono: '',
+            correo: '',
+            invitados: '',
+            dudas: ''
+            });
+        })
+        .catch(err => {
+            console.error("Error al registrar:", err);
+            alert("Hubo un problema al registrar tus datos.");
+        });
+    };
 
   return (
     <div className='BodyContainer'>
+        <Banner />
         <section className='HistoryContainer'>
             <picture className='HistoryContainer_flowers'>
                 <img src={flowers} alt="flores presentación" />
@@ -27,6 +69,7 @@ function Body() {
             <picture className='HistoryContainer_img'>
                 <img src={imgBody1} alt="imagen o video" />
             </picture>
+            <Link to="/historia" className="ButtonHistory">Conocer más</Link>
         </section>
         <section className='LocationContainer'>
             <div className='LocationContainer_containerImg'>
@@ -48,6 +91,7 @@ function Body() {
                 <h3>Fin del Evento en Jardín: 03:00 hrs</h3>
                 <h3>After Party: 03:00 - ∞ hrs</h3>
             </div>
+            <Link to="/itinerario" className="ButtonItinerario">Ver detalles</Link>
         </section>
         <section className='GalleryContainer'>
             <div className='GalleryContainer_principal'>
@@ -118,26 +162,18 @@ function Body() {
         <section className='EventGridContainer'>
             <h2>Nuestra pasión es su evento perfecto</h2>
             <section className='EventGridContainer_imgGrid'>
-                <div class="item item1"></div>
-                <div class="item item2"></div>
-                <div class="item item3"></div>
-                <div class="item item4"></div>
-                <div class="item item5"></div>
-                <div class="item item6"></div>
+                <div className="item item1"></div>
+                <div className="item item2"></div>
+                <div className="item item3"></div>
+                <div className="item item4"></div>
+                <div className="item item5"></div>
+                <div className="item item6"></div>
             </section>
             <picture className='EventGridContainer_img'>
                 <img src={flower45} alt="flores inclinada" />
             </picture>
         </section>
-        <section>
-            <div className="gmap_canvas">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.3378531744365!2d-98.92332909999999!3d19.499595799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6788ce8df21%3A0x41a0ce88fc184fa1!2sHacienda%20de%20los%20Angeles!5e1!3m2!1sen!2smx!4v1750052896568!5m2!1sen!2smx" width="600" height="450" style={{ border: 0 }} allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" referrerPolicy="no-referrer-when-downgrade" title="Hacienda de los Angeles"></iframe>
-            </div>
-            <div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.964650124654!2d-98.89754769999999!3d19.477072900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6ee8368ee63%3A0x43ce9bb80abc8574!2sParroquia%20de%20San%20Bernardino%20de%20Siena!5e1!3m2!1sen!2smx!4v1750053050182!5m2!1sen!2smx" width="600" height="450" style={{ border: 0 }} allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title='Parroquia de San Bernardino de Siena'></iframe>
-            </div>
-        </section>
-        <section className='FormContainer'>
+        <section id='FormAbsolute' className='FormContainer'>
             <h2>Confirma tu Asistencia</h2>
             <section>
                 <Stepper
@@ -145,9 +181,9 @@ function Body() {
                     onStepChange={(step) => {
                         console.log(step);
                     }}
-                    onFinalStepCompleted={() => console.log("All steps completed!")}
-                    backButtonText="Previous"
-                    nextButtonText="Next"
+                    onFinalStepCompleted={sendToGoogleSheets}
+                    backButtonText="Anterior"
+                    nextButtonText="Siguiente"
                     >
                     <Step>
                         <h3>Agradecemos tu interes</h3>
@@ -155,20 +191,19 @@ function Body() {
                     </Step>
                     <Step>
                         <h3>El evento es privado, no se puede acceder sin registro ni invitación</h3>
-                        <p>*Pueden surgir cambios sin previo aviso</p>
+                        <p>* Pueden surgir cambios sin previo aviso</p>
                         <h3>Ingresa los datos solicitados</h3>
                         {/* <img style={{ height: 'auto', width: '100%', objectFit: 'cover', objectPosition: 'center', borderRadius: '1rem', marginTop: '0rem' }} src="https://www.purrfectcatgifts.co.uk/cdn/shop/collections/Funny_Cat_Cards_640x640.png?v=1663150894" /> */}
-                        <input placeholder="Nombre" />
-                        <input placeholder="Apellidos" />
-                        <input placeholder="Número de teléfono" />
-                        <input placeholder="Correo" />
-                        <input placeholder="No. invitados (Incluido tú)" />
-                        <input placeholder="Otra cosa" />
+                        <input placeholder="Nombre"  name="nombre" value={formData.nombre} onChange={handleChange}/>
+                        <input placeholder="Apellidos" name="apellidos" value={formData.apellidos} onChange={handleChange} />
+                        <input placeholder="Número de teléfono"  name="telefono" value={formData.telefono} onChange={handleChange}/>
+                        <input placeholder="Correo" name="correo" value={formData.correo} onChange={handleChange}/>
+                        <input placeholder="No. invitados (Incluido tú)"  name="invitados" value={formData.invitados} onChange={handleChange}/>
 
                     </Step>
                     <Step>
                         <h3>¿Tienes alguna duda respecto al evento?</h3>
-                        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your questions" />
+                        <input placeholder="Tus dudas" name="dudas" value={formData.dudas} onChange={handleChange}/>
                     </Step>
                     <Step>
                         <h3>Gracias por registrarte</h3>
@@ -176,14 +211,22 @@ function Body() {
                     </Step>
                 </Stepper>
             </section>
+            <section id='VenueMaps'>
+                <div className="Gmap_canvas">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.3378531744365!2d-98.92332909999999!3d19.499595799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6788ce8df21%3A0x41a0ce88fc184fa1!2sHacienda%20de%20los%20Angeles!5e1!3m2!1sen!2smx!4v1750052896568!5m2!1sen!2smx" width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Hacienda de los Angeles"></iframe>
+                </div>
+                <div className="Gmap_canvas">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.964650124654!2d-98.89754769999999!3d19.477072900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6ee8368ee63%3A0x43ce9bb80abc8574!2sParroquia%20de%20San%20Bernardino%20de%20Siena!5e1!3m2!1sen!2smx!4v1750053050182!5m2!1sen!2smx" width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title='Parroquia de San Bernardino de Siena'></iframe>
+                </div>
+            </section>
             {/* <section>
                 <form>
-                    <div className='FormContainer_input'>
-                        <input type="text" placeholder='Nombre' />
-                        <input type="text" placeholder='Apellido' />
-                    </div>
-                    <div className='FormContainer_input'>
-                        <input type="email" placeholder='Email' />
+                <div className='FormContainer_input'>
+                <input type="text" placeholder='Nombre' />
+                <input type="text" placeholder='Apellido' />
+                </div>
+                <div className='FormContainer_input'>
+                <input type="email" placeholder='Email' />
                         <input type="tel" placeholder='Teléfono' />
                     </div>
                     <div className='FormContainer_input'>

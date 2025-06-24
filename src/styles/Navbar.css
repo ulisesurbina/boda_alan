@@ -37,6 +37,11 @@
     & a {
         font-size: 1.8vw;
         line-height: 2.3vw;
+        transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
     }
     & a:hover {
         color: #99631D;
