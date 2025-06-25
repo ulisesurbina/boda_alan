@@ -14,6 +14,7 @@ import imgBody10 from '../assets/boda_4.webp'
 import imgBody11 from '../assets/boda_5.webp'
 import imgBody12 from '../assets/boda_15.webp'
 import flower45 from '../assets/flower45.png'
+import anillos from '../assets/anillosNew.webp'
 
 function Body() {
     // Estado del formulario que faltaba
@@ -114,8 +115,8 @@ function Body() {
         <div className='BodyContainer'>
             <Banner />
             <section className='HistoryContainer'>
-                <picture className='HistoryContainer_flowers'>
-                    <img src={flowers} alt="flores presentación" />
+                <picture className='HistoryContainer_anillos'>
+                    <img src={anillos} alt="flores presentación" />
                 </picture>
                 <h2>Nuestra Historia</h2>
                 <p>El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de 5 años juntos, decidimos dar el siguiente paso en nuestro camino y queremos que seas parte de este día tan especial.</p>
@@ -136,29 +137,42 @@ function Body() {
                     </picture>
                 </div>
                 <div className='LocationContainer_text'>
-                    <h2>Itinerario</h2>
-                    <h3>Ceremonia Religiosa: 15:00 - 16:00 hrs</h3>
-                    <h3>Ceremonia Cívica: 17:00 - 17:30 hrs</h3>
-                    <h3>Recepción en Jardín: 17:30 - 18:00 hrs</h3>
-                    <h3>Inicio del Evento en Jardín: 18:00 hrs</h3>
-                    <h3>Cena: 18:30 - 19:30 hrs</h3>
-                    <h3>Fiesta: 19:30 - 03:00 hrs</h3>
-                    <h3>Fin del Evento en Jardín: 03:00 hrs</h3>
-                    <h3>After Party: 03:00 - ∞ hrs</h3>
+                    <h2>Con la bendición de Dios y nuestros padres</h2>
+                    <section className='LocationContainer_text_info'>
+                        <div>
+                            <h3>Araceli Zuleima Reyes Salgado</h3>
+                            <h4>Padres:</h4>
+                            <ul>
+                                <li>Paula Salgado Rogel</li>
+                                <li>Roberto Reyes Rojas</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Mario Alan Albarran Guerrero</h3>
+                            <h4>Padres:</h4>
+                            <ul>
+                                <li>María Elena Guerrero Beristain</li>
+                                <li>Rafael Fuente Carbaja</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <h3>Padrinos de Velación</h3>
+                    <h3>Nadia Albarran Palacios &nbsp; & &nbsp; Rafael Fuente Carbajal</h3>
                 </div>
-                <Link to="/itinerario" className="ButtonItinerario">Ver detalles</Link>
             </section>
             <section className='GalleryContainer'>
                 <div className='GalleryContainer_principal'>
                     <div className='GalleryContainer_text'>
-                        <h2>Galería</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nostrum voluptatibus eligendi et. Culpa architecto odio aut voluptates incidunt, ipsum eos, quaerat et at id assumenda quis? Quasi, quia explicabo?</p>
-                        <ul>
-                            <li>Non ac iaculis lobortis </li>
-                            <li>Gravida ullamcorper</li>
-                            <li>Sed lectus ultricies</li>
-                            <li>Aenean posuere urna</li>
-                        </ul>
+                        <h2>Itinerario</h2>
+                        <h3>Ceremonia Religiosa: 15:00 - 16:00 hrs</h3>
+                        <h3>Ceremonia Cívica: 17:00 - 17:30 hrs</h3>
+                        <h3>Recepción en Jardín: 17:30 - 18:00 hrs</h3>
+                        <h3>Inicio del Evento en Jardín: 18:00 hrs</h3>
+                        <h3>Cena: 18:30 - 19:30 hrs</h3>
+                        <h3>Fiesta: 19:30 - 03:00 hrs</h3>
+                        <h3>Fin del Evento en Jardín: 03:00 hrs</h3>
+                        <h3>After Party: 03:00 - ∞ hrs</h3>
+                        <Link to="/itinerario" className="ButtonItinerario">Ver detalles</Link>
                     </div>
                     <picture className='GalleryContainer_imgs'>
                         <img src={imgBody2_8} alt="img sobre otra" />
