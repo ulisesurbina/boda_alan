@@ -55,6 +55,7 @@ function App() {
       <Footer />
       <audio ref={audioRef} loop autoPlay>
         <source src="../public/original.mpeg" type="audio/mpeg" />
+        <source src="../public/original.mp3" type="audio/mp3" />
         Tu navegador no soporta audio HTML5.
       </audio>
     </Router>
