@@ -6,6 +6,7 @@ import Body from './components/Body.jsx'
 import Footer from './components/Footer.jsx'
 import LandingHistoria from './pages/LandingHistoria.jsx';
 import LandingItinerario from './pages/LandingItinerario.jsx';
+import audiomp3 from '../public/original.mp3';
 
 function App() {
   const audioRef = useRef(null);
@@ -54,8 +55,8 @@ function App() {
         </Routes>
       <Footer />
       <audio ref={audioRef} loop autoPlay>
-        <source src="../public/original.mpeg" type="audio/mpeg" />
-        <source src="../public/original.mp3" type="audio/mp3" />
+        {/* <source src={audio} type="audio/mpeg" /> */}
+        <source src={audiomp3} type="audio/mp3" />
         Tu navegador no soporta audio HTML5.
       </audio>
     </Router>
