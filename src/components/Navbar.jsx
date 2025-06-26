@@ -11,7 +11,7 @@ function Navbar() {
           <img src={logo} alt="logo boda" />
         </picture>
         <div className='NavbarContainer__section'>
-          <Link to="/">Inicio</Link>
+          <Link smooth to="/#PrincipalHero">Inicio</Link>
         </div>
         <div className='NavbarContainer__section'>
           <Link to="/historia">Sobre nosotros</Link>

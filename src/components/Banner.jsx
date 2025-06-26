@@ -1,14 +1,16 @@
-import RotatingText from './RotateText'
+import RotatingText from '../utils/RotateText'
 import Countdown from '../utils/Countdown';
 
 import '../App.css'
 import '../styles/RotatingText.css'
 import bannerMano from '../assets/boda_16.webp'
+import play from '../assets/play.webp'
+import pause from '../assets/pause.webp'
 
-function Banner() {
+function Banner({ reproduciendo, toggleMusica }) {
 
   return (
-    <section className='ContainerBannerGeneral'>
+    <section id='PrincipalHero' className='ContainerBannerGeneral'>
       <div className='HeroBanner'>
         <img src={bannerMano} alt="test" />
         <div className='ContenidoBanner'>
@@ -30,6 +32,9 @@ function Banner() {
             <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Por favor confirma tu asistencia lo antes posible, <br /> así sabremos si contamos contigo para celebrar juntos. <br /> Esperamos verte dentro de:</h4>
           </div>
           <Countdown />
+          <button className='Container_ControlMusica' onClick={toggleMusica}>
+            {reproduciendo ? <img className='ControlMusica' src={pause} alt="Pause"/> : <img className='ControlMusica' src={play} alt="Play"/>}
+          </button>        
         </div>
       </div>
     </section>

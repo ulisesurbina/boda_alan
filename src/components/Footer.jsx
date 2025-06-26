@@ -11,7 +11,7 @@ function Footer() {
       </picture>
       <h2>&copy; 2025 Ulises Urbina - Todos los derechos reservados.</h2>
       <h2>💻 Diseñado y desarrollado por <a href="https://portafolio-ulisesurbina.netlify.app/" target="_blank">Ulises Urbina Maldonado</a></h2>
-      <a href=""><img className='ImgLinkedin' src={linkedin} alt='linkedin'/></a>
+      <a href="https://www.linkedin.com/in/ulisesurbina111/" target='_blank'><img className='ImgLinkedin' src={linkedin} alt='linkedin'/></a>
     </div>
   )
 }

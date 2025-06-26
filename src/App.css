@@ -11,7 +11,17 @@
     object-fit: cover;
     filter: brightness(0.4);
     -webkit-filter: brightness(0.4);
+  }
 }
+.Container_ControlMusica {
+  width: 60%;
+  height: 5vh;
+  margin: auto;
+}
+.ControlMusica {
+  width: 5% !important;
+  height: 100% !important;
+  object-fit: contain !important;
 }
 .ContainerPrincipalTitle {
   overflow: hidden;
@@ -73,6 +83,11 @@
   100% { color: #e63946; }
 }
 
+/* .TitlesSections {
+  font-size: 3.5vw;
+  line-height: 4vw;
+  font-weight: 600;
+} */
 .BodyContainer {
   width: 100%;
 }
@@ -112,7 +127,7 @@
 }
 .LocationContainer {
   width: 100%;
-  padding: 40% 0 13% 0;
+  padding: 40% 0 5% 0;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -217,16 +232,16 @@
 }
 .ButtonItinerario {
   width: fit-content;
-  padding: 0.75rem 1.5rem;
-  background-color: #D18AA2;
+  padding: 1rem 2rem;
+  background-color: #F7E8C0;
   color: white;
   border: none;
   text-decoration: none;
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
   transition: background-color 0.3s ease;
   -webkit-transition: background-color 0.3s ease;
   -moz-transition: background-color 0.3s ease;
@@ -234,18 +249,17 @@
   -o-transition: background-color 0.3s ease;
 }
 .ButtonHistory {
-  padding: 0.75rem 1.5rem;
-  background-color: #D18AA2;
-  color: white;
+  padding: 1rem 2rem;
+  background-color: #F7E8C0;
   border: none;
   text-decoration: none;
   width: fit-content;
   margin: 0 auto;
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
   transition: background-color 0.3s ease;
   -webkit-transition: background-color 0.3s ease;
   -moz-transition: background-color 0.3s ease;
@@ -530,13 +544,13 @@
   }
   & a {
     z-index: 10;
-    color: #2cd63a;
+    color: #B8C77A;
     text-decoration: none;
-    font-size: 2.3vw;
-    line-height: 3vw;
+    width: fit-content;
+    margin: 0 auto;
   }
   & .ImgLinkedin {
-    width: 3%;
+    width: 15%;
   }
 }
 
@@ -948,10 +962,6 @@
     & h2 {
       font-size: 1.5rem;
       line-height: 2rem;
-    }
-    & a {
-      font-size: 2rem;
-      line-height: 2.5rem;
     }
   }
   .ButtonItinerario {

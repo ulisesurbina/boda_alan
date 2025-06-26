@@ -1,3 +1,4 @@
+import React, { useRef, useState,useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Navbar from './components/Navbar.jsx'
@@ -7,16 +8,55 @@ import LandingHistoria from './pages/LandingHistoria.jsx';
 import LandingItinerario from './pages/LandingItinerario.jsx';
 
 function App() {
+  const audioRef = useRef(null);
+  const [reproduciendo, setReproduciendo] = useState(true);
+
+  const toggleMusica = () => {
+    if (audioRef.current) {
+      if (reproduciendo) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setReproduciendo(!reproduciendo);
+    }
+  };
+
+   useEffect(() => {
+      if (audioRef.current) {
+        audioRef.current.currentTime = 4;
+        audioRef.current.play().catch(error => {
+          console.log('No se pudo reproducir automáticamente:', error);
+          setReproduciendo(false);
+        });
+        const audio = audioRef.current;
+        
+        const handlePlay = () => setReproduciendo(true);
+        const handlePause = () => setReproduciendo(false);
+
+        audio.addEventListener('play', handlePlay);
+        audio.addEventListener('pause', handlePause);
+
+        return () => {
+          audio.removeEventListener('play', handlePlay);
+          audio.removeEventListener('pause', handlePause);
+        };
+      }
+    }, []);
 
   return (
     <Router>
       <Navbar />
         <Routes>
-          <Route path="/" element={<Body />} />
+          <Route path="/" element={<Body reproduciendo={reproduciendo} toggleMusica={toggleMusica} />} />
           <Route path="/historia" element={<LandingHistoria />} />
           <Route path="/itinerario" element={<LandingItinerario />} />
         </Routes>
       <Footer />
+      <audio ref={audioRef} loop autoPlay>
+        <source src="../public/original.mpeg" type="audio/mpeg" />
+        Tu navegador no soporta audio HTML5.
+      </audio>
     </Router>
   )
 }

@@ -1,8 +1,8 @@
 import '../App.css'
 import Banner from './Banner';
+import Button from '../utils/Button';
 import { useState } from 'react';
 import Stepper, { Step } from '../components/Stepper';
-import { Link } from 'react-router-dom';
 import flowers from '../assets/flowers.png'
 import imgBody1 from '../assets/boda_12reflec.webp'
 import flowersCircle from '../assets/flowersCircle.png'
@@ -16,7 +16,7 @@ import imgBody12 from '../assets/boda_15.webp'
 import flower45 from '../assets/flower45.png'
 import anillos from '../assets/anillosNew.webp'
 
-function Body() {
+function Body({ reproduciendo, toggleMusica }) {
     // Estado del formulario que faltaba
     const [formData, setFormData] = useState({
         nombre: '',
@@ -113,7 +113,7 @@ function Body() {
 
     return (
         <div className='BodyContainer'>
-            <Banner />
+            <Banner reproduciendo={reproduciendo} toggleMusica={toggleMusica} />
             <section className='HistoryContainer'>
                 <picture className='HistoryContainer_anillos'>
                     <img src={anillos} alt="flores presentación" />
@@ -125,7 +125,7 @@ function Body() {
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
                 </picture>
-                <Link to="/historia" className="ButtonHistory">Conocer más</Link>
+                <Button to="/historia">Conoce nuestra historia</Button>
             </section>
             <section className='LocationContainer'>
                 <div className='LocationContainer_containerImg'>
@@ -172,7 +172,7 @@ function Body() {
                         <h3>Fiesta: 19:30 - 03:00 hrs</h3>
                         <h3>Fin del Evento en Jardín: 03:00 hrs</h3>
                         <h3>After Party: 03:00 - ∞ hrs</h3>
-                        <Link to="/itinerario" className="ButtonItinerario">Ver detalles</Link>
+                        <Button to="/itinerario">Ver detalles</Button>
                     </div>
                     <picture className='GalleryContainer_imgs'>
                         <img src={imgBody2_8} alt="img sobre otra" />
@@ -304,7 +304,7 @@ function Body() {
                         <Step>
                             <h3>¿Tienes alguna duda respecto al evento?</h3>
                             <input 
-                                placeholder="Tus dudas" 
+                                placeholder="Escribe tus dudas"
                                 name="dudas" 
                                 value={formData.dudas} 
                                 onChange={handleChange}
