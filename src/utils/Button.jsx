@@ -23,7 +23,7 @@ const StyledWrapper = styled.div`
     overflow: hidden;
     cursor: pointer;
     z-index: 1;
-    font-weight: 300;
+    font-weight: 400;
     font-size: clamp(1.5rem, 2.2vw, 2.5rem);
     color: var(--color);
     text-decoration: none;

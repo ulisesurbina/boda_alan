@@ -90,6 +90,7 @@
 } */
 .BodyContainer {
   width: 100%;
+  position: relative;
 }
 .HistoryContainer {
   width: 80%;
@@ -101,6 +102,10 @@
   & h2 {
     font-size: 3.5vw;
     line-height: 4vw;
+  }
+  & h3 {
+    font-size: 2.5vw;
+    line-height: 3vw;
   }
   & p {
     font-size: 2.1vw;
@@ -380,6 +385,57 @@
     }
   }
 }
+
+.BtnExternoGlobal {
+  --color: #4F7A92;
+  --color2: #F7E8C0;
+  padding: 1rem 2rem;
+  background-color: #F7E8C0;
+  border-radius: 3rem;
+  transition: 0.5s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+  color: var(--color);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+.BtnExternoGlobal::after, .BtnExternoGlobal::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: skew(90deg) translate(-50%, -50%);
+  position: absolute;
+  inset: 50%;
+  left: 25%;
+  z-index: -1;
+  transition: 0.5s ease-out;
+  background-color: var(--color);
+}
+.BtnExternoGlobal::before {
+  top: -50%;
+  left: -25%;
+  transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+.BtnExternoGlobal:hover::before {
+  transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+.BtnExternoGlobal:hover::after {
+  transform: skew(45deg) translate(-50%, -50%);
+}
+.BtnExternoGlobal:hover {
+  color: var(--color2);
+}
+.BtnExternoGlobal:active {
+  filter: brightness(0.7);
+  transform: scale(0.98);
+}
+
 .DressCodeContainer {
   width: 100%;
   margin: 8% auto;
@@ -425,6 +481,9 @@
       & .DressCodeContainer_position_flowers {
         width: 50%;
         margin: 2% auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         & img {
           width: 100%;
           height: 100%;
@@ -434,6 +493,10 @@
       & p {
         font-size: 2.1vw;
         line-height: 2.6vw;
+      }
+      & h3 {
+        font-size: 2.4vw;
+        line-height: 2.9vw;
       }
     }
   }
@@ -707,6 +770,10 @@
           font-size: 1.5rem;
           line-height: 2rem;
         }
+        & h3 {
+          font-size: 1.8rem;
+          line-height: 2.3rem;
+        }
         & .DressCodeContainer_position_flowers {
           width: 50%;
         }
@@ -928,6 +995,10 @@
           font-size: 1.5rem;
           line-height: 2rem;
         }
+        & h3 {
+          font-size: 1.8rem;
+          line-height: 2.3rem;
+        }
       }
     }
   }
@@ -960,8 +1031,11 @@
   }
   .FooterContainer {
     & h2 {
-      font-size: 1.5rem;
-      line-height: 2rem;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+    }
+    & .ImgLinkedin {
+      width: 8%;
     }
   }
   .ButtonItinerario {

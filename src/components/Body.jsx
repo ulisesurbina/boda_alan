@@ -1,9 +1,12 @@
 import '../App.css'
-import Banner from './Banner';
+import Banner from './BannerN';
 import Button from '../utils/Button';
 import { useState } from 'react';
 import Stepper, { Step } from '../components/Stepper';
+import play from '../assets/play.webp'
+import pause from '../assets/pause.webp'
 import flowers from '../assets/flowers.png'
+import dress from '../assets/vestimenta.webp'
 import imgBody1 from '../assets/boda_12reflec.webp'
 import flowersCircle from '../assets/flowersCircle.png'
 import imgBodyCircle from '../assets/boda_6.webp'
@@ -113,7 +116,10 @@ function Body({ reproduciendo, toggleMusica }) {
 
     return (
         <div className='BodyContainer'>
-            <Banner reproduciendo={reproduciendo} toggleMusica={toggleMusica} />
+            <Banner />
+            <button className='Container_ControlMusica' onClick={toggleMusica}>
+                {reproduciendo ? <img className='ControlMusica' src={pause} alt="Pause"/> : <img className='ControlMusica' src={play} alt="Play"/>}
+            </button>
             <section className='HistoryContainer'>
                 <picture className='HistoryContainer_anillos'>
                     <img src={anillos} alt="flores presentación" />
@@ -122,6 +128,7 @@ function Body({ reproduciendo, toggleMusica }) {
                 <p>El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de 5 años juntos, decidimos dar el siguiente paso en nuestro camino y queremos que seas parte de este día tan especial.</p>
                 <p>Te invitamos a ser parte de este momento tan especial en nuestras vidas.</p>
                 <p>Tu presencia será el mejor regalo.</p>
+                <h3>Respetuosamente no niños.<br/>Amamos a sus pequeños, pero queremos que ese día solo tengan que preocuparse por pasarla increíble.</h3>
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
                 </picture>
@@ -137,7 +144,7 @@ function Body({ reproduciendo, toggleMusica }) {
                     </picture>
                 </div>
                 <div className='LocationContainer_text'>
-                    <h2>Con la bendición de Dios y nuestros padres</h2>
+                    <h2>Con la bendición de Dios y nuestros Padres</h2>
                     <section className='LocationContainer_text_info'>
                         <div>
                             <h3>Araceli Zuleima Reyes Salgado</h3>
@@ -152,7 +159,7 @@ function Body({ reproduciendo, toggleMusica }) {
                             <h4>Padres:</h4>
                             <ul>
                                 <li>María Elena Guerrero Beristain</li>
-                                <li>Rafael Fuente Carbaja</li>
+                                <li>Martín Albarran Trujillo</li>
                             </ul>
                         </div>
                     </section>
@@ -163,7 +170,7 @@ function Body({ reproduciendo, toggleMusica }) {
             <section className='GalleryContainer'>
                 <div className='GalleryContainer_principal'>
                     <div className='GalleryContainer_text'>
-                        <h2>Itinerario</h2>
+                        <h2>Programa del Evento</h2>
                         <h3>Ceremonia Religiosa: 15:00 - 16:00 hrs</h3>
                         <h3>Ceremonia Cívica: 17:00 - 17:30 hrs</h3>
                         <h3>Recepción en Jardín: 17:30 - 18:00 hrs</h3>
@@ -213,6 +220,7 @@ function Body({ reproduciendo, toggleMusica }) {
                         </div>
                     </div>
                 </div>
+                <a className="BtnExternoGlobal" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51711361" target='_blank'>Ver lista de regalos</a>
             </section>
             <section className='DressCodeContainer'>
                 <h2>Código de Vestimenta</h2>
@@ -223,8 +231,11 @@ function Body({ reproduciendo, toggleMusica }) {
                     <section className='DressCodeContainer_position_text'>
                         <picture className='DressCodeContainer_position_flowers'>
                             <img src={flowers} alt="flores presentación" />
+                            <img src={dress} alt="vestimenta" />
                         </picture>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis vero, mollitia numquam et quia voluptas corporis asperiores nam facere? Error, rem deserunt eius nisi rerum sed labore maiores perspiciatis eum?</p>
+                        <p>Formal Elegante</p>
+                        <p>Favor de evitar colores:</p>
+                        <h3>Blanco &nbsp; & &nbsp; Rojo </h3>
                     </section>
                 </div>
             </section>
@@ -325,6 +336,10 @@ function Body({ reproduciendo, toggleMusica }) {
                     <div className="Gmap_canvas">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.964650124654!2d-98.89754769999999!3d19.477072900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6ee8368ee63%3A0x43ce9bb80abc8574!2sParroquia%20de%20San%20Bernardino%20de%20Siena!5e1!3m2!1sen!2smx!4v1750053050182!5m2!1sen!2smx" width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title='Parroquia de San Bernardino de Siena'></iframe>
                     </div>
+                    <div className="Gmap_canvas">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1501.882257207231!2d-98.9141162!3d19.5269288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6055738a4c9%3A0xbe8f7e3bf16a9092!2sCorregidora%2C%20Vicente%20Riva%20Palacio%2C%2056200%20Vicente%20Riva%20Palacio%2C%20M%C3%A9x.!5e1!3m2!1sen!2smx!4v1719411144455!5m2!1sen!2smx" width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Ubicación After" ></iframe>
+                    </div>
+
                 </section>
             </section>
         </div>
