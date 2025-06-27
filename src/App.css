@@ -297,6 +297,11 @@
         font-size: 3.5vw;
         line-height: 4vw;
       }
+      & h3 {
+        font-size: 2.5vw;
+        line-height: 3vw;
+        font-weight: 500;
+      }
       & p, ul {
         font-size: 2.1vw;
         line-height: 2.6vw;
@@ -373,8 +378,8 @@
         -o-border-radius: 0.5rem;
         & h3 {
           text-align: center;
-          font-size: 2.1vw;
-          line-height: 2.6vw;
+          font-size: 2.5vw;
+          line-height: 3vw;
         }
         & svg {
           width: auto;
@@ -495,8 +500,8 @@
         line-height: 2.6vw;
       }
       & h3 {
-        font-size: 2.4vw;
-        line-height: 2.9vw;
+        font-size: 2.5vw;
+        line-height: 3vw;
       }
     }
   }
@@ -613,7 +618,7 @@
     margin: 0 auto;
   }
   & .ImgLinkedin {
-    width: 15%;
+    width: 8%;
   }
 }
 
@@ -687,6 +692,10 @@
           font-size: 2.5rem;
           line-height: 3rem;
         }
+        & h3 {
+          font-size: 1.8rem;
+          line-height: 2.3rem;
+        }
         & p, ul {
           font-size: 1.5rem;
           line-height: 2rem;
@@ -726,6 +735,10 @@
       font-size: 2.5rem;
       line-height: 3rem;
     }
+    & h3 {
+      font-size: 1.8rem;
+      line-height: 2.3rem;
+    }
     & p {
       font-size: 1.5rem;
       line-height: 2rem;
@@ -745,8 +758,8 @@
       & .GiftTableContainer_gridItem {
         & div {
           & h3 {
-            font-size: 1rem;
-            line-height: 1.5rem;
+            font-size: 1.8rem;
+            line-height: 2.3rem;
           }
         }
       }
@@ -815,8 +828,8 @@
   .ContenidoBanner {
     top: 56%;
     & h3 {
-      font-size: 1.5rem;
-      line-height: 2rem;
+      font-size: 1.8rem;
+      line-height: 2.3rem;
     }
     & h4 {
       font-size: 1.3rem;
@@ -832,6 +845,10 @@
     & h2 {
       font-size: 2.5rem;
       line-height: 3rem;
+    }
+    & h3 {
+      font-size: 1.8rem;
+      line-height: 2.3rem;
     }
     & p {
       font-size: 1.5rem;
@@ -914,6 +931,11 @@
         & h2 {
           font-size: 2.5rem;
           line-height: 3rem;
+          text-align: center;
+        }
+        & h3 {
+          font-size: 1.8rem;
+          line-height: 2.3rem;
         }
         & p {
           font-size: 1.5rem;
@@ -952,8 +974,8 @@
         & div {
           width: 37%;
           & h3 {
-            font-size: 1.5rem;
-            line-height: 2rem;
+            font-size: 1.8rem;
+            line-height: 2.3rem;
           }
         }
       }
@@ -990,6 +1012,8 @@
         -o-transform: none;
         & .DressCodeContainer_position_flowers {
           width: 50%;
+          margin: 1rem auto;
+          gap: 1rem;
         }
         & p {
           font-size: 1.5rem;
@@ -1034,9 +1058,6 @@
       font-size: 1.2rem;
       line-height: 1.7rem;
     }
-    & .ImgLinkedin {
-      width: 8%;
-    }
   }
   .ButtonItinerario {
     bottom: 0%;
@@ -1068,7 +1089,7 @@
         width: 100%;
         padding: 1rem;
         & .DressCodeContainer_position_flowers {
-          width: 80%;
+          width: 47%;
         }
       }
       & .DressCodeContainer_position_img {
