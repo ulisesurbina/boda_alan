@@ -5,7 +5,7 @@ import '../App.css'
 import '../styles/RotatingText.css'
 import bannerMano from '../assets/boda_16.webp'
 
-function Banner({ reproduciendo, toggleMusica }) {
+function Banner({}) {
 
   return (
     <section id='PrincipalHero' className='ContainerBannerGeneral'>

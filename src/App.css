@@ -14,12 +14,23 @@
   }
 }
 .Container_ControlMusica {
-  width: 60%;
-  height: 5vh;
-  margin: auto;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 999;
+  width: 10%;
+  height: 10vh;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 3rem;
+  border-top-right-radius: 3rem;
 }
 .ControlMusica {
-  width: 5% !important;
+  width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
 }
@@ -820,6 +831,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  .Container_ControlMusica {
+    width: 5rem;
+  }
   .PrincipalTitle {
     font-size: 2.5rem;
     line-height: 3rem;

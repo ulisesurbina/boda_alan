@@ -339,7 +339,6 @@ function Body({ reproduciendo, toggleMusica }) {
                     <div className="Gmap_canvas">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1501.882257207231!2d-98.9141162!3d19.5269288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6055738a4c9%3A0xbe8f7e3bf16a9092!2sCorregidora%2C%20Vicente%20Riva%20Palacio%2C%2056200%20Vicente%20Riva%20Palacio%2C%20M%C3%A9x.!5e1!3m2!1sen!2smx!4v1719411144455!5m2!1sen!2smx" width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Ubicación After" ></iframe>
                     </div>
-
                 </section>
             </section>
         </div>
