@@ -23,6 +23,12 @@ function App() {
     }
   };
 
+  const playMusic = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+
    useEffect(() => {
       if (audioRef.current) {
         audioRef.current.currentTime = 4;
@@ -46,7 +52,7 @@ function App() {
     }, []);
 
   return (
-    <Router>
+    <Router onClick={playMusic}>
       <Navbar />
         <Routes>
           <Route path="/" element={<Body reproduciendo={reproduciendo} toggleMusica={toggleMusica} />} />
@@ -55,7 +61,6 @@ function App() {
         </Routes>
       <Footer />
       <audio ref={audioRef} loop autoPlay>
-        {/* <source src={audio} type="audio/mpeg" /> */}
         <source src={audiomp3} type="audio/mp3" />
         Tu navegador no soporta audio HTML5.
       </audio>

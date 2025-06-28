@@ -1,10 +1,11 @@
 import '../App.css'
 import Banner from './BannerN';
 import Button from '../utils/Button';
+import CircularGallery from '../utils/CircularGallery'
 import { useState } from 'react';
 import Stepper, { Step } from '../components/Stepper';
-import play from '../assets/play.webp'
-import pause from '../assets/pause.webp'
+import silencio from '../assets/silencio.webp'
+import volumen from '../assets/volumen.webp'
 import flowers from '../assets/flowers.png'
 import dress from '../assets/vestimenta.webp'
 import imgBody1 from '../assets/boda_12reflec.webp'
@@ -117,8 +118,8 @@ function Body({ reproduciendo, toggleMusica }) {
     return (
         <div className='BodyContainer'>
             <Banner />
-            <button className='Container_ControlMusica' onClick={toggleMusica}>
-                {reproduciendo ? <img className='ControlMusica' src={pause} alt="Pause"/> : <img className='ControlMusica' src={play} alt="Play"/>}
+            <button id='silenceButton' className='Container_ControlMusica' onClick={toggleMusica}>
+                {reproduciendo ? <img className='ControlMusica' src={silencio} alt="Silencio"/> : <img className='ControlMusica' src={volumen} alt="Volumen"/>}
             </button>
             <section className='HistoryContainer'>
                 <picture className='HistoryContainer_anillos'>
@@ -132,6 +133,9 @@ function Body({ reproduciendo, toggleMusica }) {
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
                 </picture>
+                <div style={{ height: '600px', position: 'relative' }}>
+                    <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
+                </div>
                 <Button to="/historia">Conoce nuestra historia</Button>
             </section>
             <section className='LocationContainer'>
