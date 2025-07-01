@@ -74,7 +74,6 @@
   font-size: 3.5vw;
   line-height: 4vw;
   font-weight: bold;
-  /* background-color: cyan; */
   width: fit-content;
   padding-top: 0.5rem;
   border-radius: 1rem;
@@ -82,6 +81,9 @@
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
+  filter: drop-shadow(0rem 0rem 1rem #e1ff00);
+  -webkit-filter: drop-shadow(0rem 0rem 1rem #e1ff00);
+  text-shadow:  0 0 1rem #e1ff00, 2px 2px 1rem rgba(0, 0, 0, 0.6);
 }
 .ContenidoBanner {
   color: #F0E6FF;
@@ -89,6 +91,8 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1rem;
   position: absolute;
   top: 50%;
@@ -98,9 +102,13 @@
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
+  & h2 {
+    font-size: 3.5vw;
+    line-height: 4vw;
+  }
   & h3 {
-    font-size: 2.5vw;
-    line-height: 3vw;
+    font-size: 2.2vw;
+    line-height: 2.7vw;
   }
   & h4 {
     font-size: 1.7vw;
@@ -498,9 +506,10 @@
   & .DressCodeContainer_position {
     position: relative;
     display: flex;
+    justify-content: center;
     margin: 0 auto;
     margin-left: 10%;
-    width: 60%;
+    width: 50%;
     & .DressCodeContainer_position_img {
       width: 65%;
       & img {
@@ -512,7 +521,7 @@
     & .DressCodeContainer_position_text {
       position: absolute;
       top: 50%;
-      left: 90%;
+      left: 100%;
       width: 60%;
       min-height: 40vh;
       display: flex;
@@ -521,11 +530,11 @@
       align-items: center;
       background-color: #E7D4CA;
       padding: 1rem 2rem;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
+      transform: translate(-27%, -50%);
+      -webkit-transform: translate(-27%, -50%);
+      -moz-transform: translate(-27%, -50%);
+      -ms-transform: translate(-27%, -50%);
+      -o-transform: translate(-27%, -50%);
       & .DressCodeContainer_position_flowers {
         width: 50%;
         margin: 2% auto;
@@ -682,6 +691,14 @@
   }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+  .Container_ControlMusica {
+    width: 4rem;
+  }
+  .FooterContainer {
+    & .ImgLinkedin {
+        width: 1.5rem;
+    }
+  }
   .LocationContainer {
     flex-direction: column;
     padding: 0 0 12% 0;
@@ -824,19 +841,27 @@
     }
   }
   .DressCodeContainer {
+    overflow-x: hidden;
     & h2 {
       font-size: 2.5rem;
       line-height: 3rem;
     }
     & .DressCodeContainer_position {
       margin: 0;
-      margin-left: 4rem;
+      margin-left: 0rem;
+      justify-content: end;
       & .DressCodeContainer_position_img {
-        width: 100%;
+        width: 75%;
       }
       & .DressCodeContainer_position_text {
+        min-height: auto;
         top: 50%;
         left: 100%;
+        transform: translate(0%, -50%);
+        -webkit-transform: translate(0%, -50%);
+        -moz-transform: translate(0%, -50%);
+        -ms-transform: translate(0%, -50%);
+        -o-transform: translate(0%, -50%);
         & p {
           font-size: 1.5rem;
           line-height: 2rem;

@@ -4,7 +4,6 @@ import './App.css'
 import Navbar from './components/Navbar.jsx'
 import Body from './components/Body.jsx'
 import Footer from './components/Footer.jsx'
-import LandingHistoria from './pages/LandingHistoria.jsx';
 import LandingItinerario from './pages/LandingItinerario.jsx';
 import audiomp3 from '../public/original.mp3';
 
@@ -46,7 +45,6 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" element={<Body reproduciendo={reproduciendo} toggleMusica={toggleMusica} />} />
-          <Route path="/historia" element={<LandingHistoria />} />
           <Route path="/itinerario" element={<LandingItinerario />} />
         </Routes>
       <Footer />

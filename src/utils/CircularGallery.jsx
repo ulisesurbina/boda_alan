@@ -10,6 +10,30 @@ import {
 } from 'ogl'
 
 import '../styles/CircularGallery.css';
+import history1 from '../assets/historia_1.jpeg'
+import history2 from '../assets/historia_2.jpeg'
+import history3 from '../assets/historia_3.jpeg'
+import history4 from '../assets/historia_4.jpeg'
+import history5 from '../assets/historia_5.jpeg'
+import history6 from '../assets/historia_6.jpeg'
+import history7 from '../assets/historia_7.jpeg'
+import history8 from '../assets/historia_8.jpeg'
+import history9 from '../assets/historia_9.jpeg'
+import history10 from '../assets/historia_10.jpeg'
+import history11 from '../assets/historia_11.jpeg'
+import history12 from '../assets/historia_12.jpeg'
+import history13 from '../assets/historia_13.jpeg'
+import history14 from '../assets/historia_14.jpeg'
+import history15 from '../assets/historia_15.jpeg'
+import history16 from '../assets/historia_16.jpeg'
+import history17 from '../assets/historia_17.jpeg'
+import history18 from '../assets/historia_18.jpeg'
+import history19 from '../assets/historia_19.jpeg'
+import history20 from '../assets/historia_20.jpeg'
+import history21 from '../assets/historia_21.jpeg'
+import history22 from '../assets/historia_22.jpeg'
+import history23 from '../assets/historia_23.jpeg'
+import history24 from '../assets/historia_24.jpeg'
 
 function debounce(func, wait) {
   let timeout
@@ -121,7 +145,8 @@ class Media {
     bend,
     textColor,
     borderRadius = 0,
-    font
+    font,
+    scaleFactor = 1
   }) {
     this.extra = 0
     this.geometry = geometry
@@ -138,6 +163,7 @@ class Media {
     this.textColor = textColor
     this.borderRadius = borderRadius
     this.font = font
+    this.scaleFactor = scaleFactor
     this.createShader()
     this.createMesh()
     this.createTitle()
@@ -160,7 +186,8 @@ class Media {
         void main() {
           vUv = uv;
           vec3 p = position;
-          p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * (0.1 + uSpeed * 0.5);
+          // Comentar o eliminar esta línea que crea el efecto de olas:
+          // p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * (0.1 + uSpeed * 0.5);
           gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
         }
       `,
@@ -197,14 +224,12 @@ class Media {
         }
       `,
       uniforms: {
-        tMap: { value: texture },
-        uPlaneSizes: { value: [0, 0] },
-        uImageSizes: { value: [0, 0] },
-        uSpeed: { value: 0 },
-        uTime: { value: 100 * Math.random() },
-        uBorderRadius: { value: this.borderRadius }
-      },
-      transparent: true
+      tMap: { value: texture },
+      uPlaneSizes: { value: [0, 0] },
+      uImageSizes: { value: [0, 0] },
+      uBorderRadius: { value: this.borderRadius }
+    },
+    transparent: true
     })
     const img = new Image()
     img.crossOrigin = "anonymous"
@@ -255,10 +280,6 @@ class Media {
       }
     }
 
-    this.speed = scroll.current - scroll.last
-    this.program.uniforms.uTime.value += 0.04
-    this.program.uniforms.uSpeed.value = this.speed
-
     const planeOffset = this.plane.scale.x / 2
     const viewportOffset = this.viewport.width / 2
     this.isBefore = this.plane.position.x + planeOffset < -viewportOffset
@@ -281,8 +302,9 @@ class Media {
       }
     }
     this.scale = this.screen.height / 1500
-    this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height
-    this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width
+    const factor = this.scaleFactor || 1
+    this.plane.scale.y = (this.viewport.height * (900 * this.scale * factor)) / this.screen.height
+    this.plane.scale.x = (this.viewport.width * (700 * this.scale * factor)) / this.screen.width
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y]
     this.padding = 2
     this.width = this.plane.scale.x + this.padding
@@ -292,7 +314,7 @@ class Media {
 }
 
 class App {
-  constructor(container, { items, bend, textColor = "#ffffff", borderRadius = 0, font = "bold 30px Figtree" } = {}) {
+  constructor(container, { items, bend, textColor = "#ffffff", borderRadius = 0, font = "bold 30px Figtree", scaleFactor = 1 } = {}) {
     document.documentElement.classList.remove('no-js')
     this.container = container
     this.scroll = { ease: 0.05, current: 0, target: 0, last: 0 }
@@ -300,9 +322,10 @@ class App {
     this.createRenderer()
     this.createCamera()
     this.createScene()
+    this.scaleFactor = scaleFactor
     this.onResize()
     this.createGeometry()
-    this.createMedias(items, bend, textColor, borderRadius, font)
+    this.createMedias(items, bend, textColor, borderRadius, font, scaleFactor)
     this.update()
     this.addEventListeners()
   }
@@ -326,20 +349,32 @@ class App {
       widthSegments: 100
     })
   }
-  createMedias(items, bend = 1, textColor, borderRadius, font) {
+  createMedias(items, bend = 1, textColor, borderRadius, font, scaleFactor) {
     const defaultItems = [
-      { image: `https://picsum.photos/seed/1/800/600?grayscale`, text: 'Bridge' },
-      { image: `https://picsum.photos/seed/2/800/600?grayscale`, text: 'Desk Setup' },
-      { image: `https://picsum.photos/seed/3/800/600?grayscale`, text: 'Waterfall' },
-      { image: `https://picsum.photos/seed/4/800/600?grayscale`, text: 'Strawberries' },
-      { image: `https://picsum.photos/seed/5/800/600?grayscale`, text: 'Deep Diving' },
-      { image: `https://picsum.photos/seed/16/800/600?grayscale`, text: 'Train Track' },
-      { image: `https://picsum.photos/seed/17/800/600?grayscale`, text: 'Santorini' },
-      { image: `https://picsum.photos/seed/8/800/600?grayscale`, text: 'Blurry Lights' },
-      { image: `https://picsum.photos/seed/9/800/600?grayscale`, text: 'New York' },
-      { image: `https://picsum.photos/seed/10/800/600?grayscale`, text: 'Good Boy' },
-      { image: `https://picsum.photos/seed/21/800/600?grayscale`, text: 'Coastline' },
-      { image: `https://picsum.photos/seed/12/800/600?grayscale`, text: "Palm Trees" }
+      { image: history1, text: '' },
+      { image: history2, text: '' },
+      { image: history3, text: '' },
+      { image: history4, text: '' },
+      { image: history5, text: '' },
+      { image: history6, text: '' },
+      { image: history7, text: '' },
+      { image: history8, text: '' },
+      { image: history9, text: '' },
+      { image: history10, text: '' },
+      { image: history11, text: '' },
+      { image: history12, text: '' },
+      { image: history13, text: '' },
+      { image: history14, text: '' },
+      { image: history15, text: '' },
+      { image: history16, text: '' },
+      { image: history17, text: '' },
+      { image: history18, text: '' },
+      { image: history19, text: '' },
+      { image: history20, text: '' },
+      { image: history21, text: '' },
+      { image: history22, text: '' },
+      { image: history23, text: '' },
+      { image: history24, text: '' }
     ]
     const galleryItems = items && items.length ? items : defaultItems
     this.mediasImages = galleryItems.concat(galleryItems)
@@ -358,7 +393,8 @@ class App {
         bend,
         textColor,
         borderRadius,
-        font
+        font,
+        scaleFactor
       })
     })
   }
@@ -456,18 +492,26 @@ class App {
 
 export default function CircularGallery({
   items,
-  bend = 3,
-  textColor = "#ffffff",
+  bend = -3,
+  textColor = "#4F7A92",
   borderRadius = 0.05,
-  font = "bold 30px Figtree"
+  font = "bold 30px Figtree",
+  scaleFactor = 1
 }) {
   const containerRef = useRef(null)
   useEffect(() => {
-    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font })
+    const app = new App(containerRef.current, {
+      items,
+      bend,
+      textColor,
+      borderRadius,
+      font,
+      scaleFactor
+    })
     return () => {
       app.destroy()
     }
-  }, [items, bend, textColor, borderRadius, font])
+  }, [items, bend, textColor, borderRadius, font, scaleFactor])
   return (
     <div className='circular-gallery' ref={containerRef} />
   )

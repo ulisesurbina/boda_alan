@@ -133,10 +133,9 @@ function Body({ reproduciendo, toggleMusica }) {
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
                 </picture>
-                <div style={{ height: '600px', position: 'relative' }}>
-                    <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
+                <div style={{ height: 'auto', position: 'relative' }}>
+                    <CircularGallery bend={-3} textColor="#4F7A92" borderRadius={0.05} scaleFactor={1.7}/>
                 </div>
-                <Button to="/historia">Conoce nuestra historia</Button>
             </section>
             <section className='LocationContainer'>
                 <div className='LocationContainer_containerImg'>
@@ -317,6 +316,7 @@ function Body({ reproduciendo, toggleMusica }) {
                             />
                         </Step>
                         <Step>
+                            <h3>Gracias por registrarte</h3>
                             <h3>¿Tienes alguna duda respecto al evento?</h3>
                             <input 
                                 placeholder="Escribe tus dudas"
@@ -325,9 +325,6 @@ function Body({ reproduciendo, toggleMusica }) {
                                 onChange={handleChange}
                                 disabled={isLoading}
                             />
-                        </Step>
-                        <Step>
-                            <h3>Gracias por registrarte</h3>
                             <p>Espera próximas noticias en tu Correo o Whatsapp</p>
                             {isLoading && <p>Enviando datos...</p>}
                         </Step>

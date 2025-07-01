@@ -24,7 +24,7 @@ function Banner({}) {
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             rotationInterval={5000}
           />
-          <h3>18 Octubre 2025</h3>
+          <h2>18 Octubre 2025</h2>
           <div className='ContenidoBanner_texto'>
             <h3>¡Bienvenidos a nuestra historia de amor! <span className="Heart">♥</span></h3>
             <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Por favor confirma tu asistencia lo antes posible, <br /> así sabremos si contamos contigo para celebrar juntos. <br /> Esperamos verte dentro de:</h4>
