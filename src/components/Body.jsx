@@ -129,7 +129,7 @@ function Body({ reproduciendo, toggleMusica }) {
                 <p>El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de 5 años juntos, decidimos dar el siguiente paso en nuestro camino y queremos que seas parte de este día tan especial.</p>
                 <p>Te invitamos a ser parte de este momento tan especial en nuestras vidas.</p>
                 <p>Tu presencia será el mejor regalo.</p>
-                <h3>Respetuosamente no niños.<br/>Amamos a sus pequeños, pero queremos que ese día solo tengan que preocuparse por pasarla increíble.</h3>
+                <h3>Se agradece la comprensión de que este evento está reservado para adultos solamente.</h3>
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
                 </picture>

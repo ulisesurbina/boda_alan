@@ -11,48 +11,38 @@ import audiomp3 from '../public/original.mp3';
 function App() {
   const audioRef = useRef(null);
   const [reproduciendo, setReproduciendo] = useState(true);
+  const [musicStarted, setMusicStarted] = useState(false);
 
   const toggleMusica = () => {
     if (audioRef.current) {
       if (reproduciendo) {
-        audioRef.current.pause();
+        audioRef.current.volume = 0;
       } else {
-        audioRef.current.play();
+        audioRef.current.volume = 1;
       }
       setReproduciendo(!reproduciendo);
     }
   };
 
-  const playMusic = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
-  };
-
    useEffect(() => {
-      if (audioRef.current) {
+    const handleUserClick = () => {
+      if (!musicStarted && audioRef.current) {
         audioRef.current.currentTime = 4;
-        audioRef.current.play().catch(error => {
-          console.log('No se pudo reproducir automáticamente:', error);
-          setReproduciendo(false);
-        });
-        const audio = audioRef.current;
-        
-        const handlePlay = () => setReproduciendo(true);
-        const handlePause = () => setReproduciendo(false);
-
-        audio.addEventListener('play', handlePlay);
-        audio.addEventListener('pause', handlePause);
-
-        return () => {
-          audio.removeEventListener('play', handlePlay);
-          audio.removeEventListener('pause', handlePause);
-        };
+        audioRef.current.volume = 1;
+        audioRef.current.play()
+          .then(() => setReproduciendo(true))
+          .catch(() => setReproduciendo(false));
+        setMusicStarted(true);
       }
-    }, []);
+    };
+    document.addEventListener('click', handleUserClick, { once: true });
+    return () => {
+      document.removeEventListener('click', handleUserClick);
+    };
+  }, [musicStarted]);
 
   return (
-    <Router onClick={playMusic}>
+    <Router>
       <Navbar />
         <Routes>
           <Route path="/" element={<Body reproduciendo={reproduciendo} toggleMusica={toggleMusica} />} />
