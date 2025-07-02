@@ -14,10 +14,10 @@ function Navbar() {
           <Link smooth to="/#PrincipalHero">Inicio</Link>
         </div>
         <div className='NavbarContainer__section'>
-          <Link to="/historia">Sobre nosotros</Link>
+          <Link smooth to="/#NuestraHistoria">Sobre nosotros</Link>
         </div>
         <div className='NavbarContainer__section'>
-          <Link to="/itinerario">Itinerario</Link>
+          <Link smooth to="/itinerario">Itinerario</Link>
         </div>
         <div className='NavbarContainer__section'>
           <Link smooth to="/#FormAbsolute">Confirma tu asistencia</Link>

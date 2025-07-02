@@ -23,6 +23,7 @@ const StyledWrapper = styled.div`
     overflow: hidden;
     cursor: pointer;
     z-index: 1;
+    font-family: 'Great Vibes', cursive;
     font-weight: 400;
     font-size: clamp(1.5rem, 2.2vw, 2.5rem);
     color: var(--color);

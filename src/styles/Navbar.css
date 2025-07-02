@@ -1,5 +1,6 @@
 
 .NavbarContainer {
+    font-family: 'Great Vibes', cursive;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,7 +46,7 @@
         -o-transition: all 0.2s ease-in-out;
     }
     & a:hover {
-        color: #0240BC;
+        color: #095bff;
     }
 }
 

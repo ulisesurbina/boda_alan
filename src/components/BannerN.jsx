@@ -27,7 +27,7 @@ function Banner({}) {
           <h2>18 Octubre 2025</h2>
           <div className='ContenidoBanner_texto'>
             <h3>¡Bienvenidos a nuestra historia de amor! <span className="Heart">♥</span></h3>
-            <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Por favor confirma tu asistencia lo antes posible, <br /> así sabremos si contamos contigo para celebrar juntos. <br /> Esperamos verte dentro de:</h4>
+            <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Contar con tu presencia será un verdadero honor, y agradecemos de antemano tu confirmación. <br /> Esperamos verte dentro de:</h4>
           </div>
           <Countdown />      
         </div>

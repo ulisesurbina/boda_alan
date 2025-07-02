@@ -12,6 +12,16 @@
     filter: brightness(0.4);
     -webkit-filter: brightness(0.4);
   }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgb(254, 249, 241) 100%);
+    pointer-events: none;
+  }
 }
 .Container_ControlMusica {
   position: fixed;
@@ -71,8 +81,9 @@
   padding: 0 0.6rem;
 }
 .PrincipalTitle {
-  font-size: 3.5vw;
-  line-height: 4vw;
+  font-family: 'Great Vibes', cursive;
+  font-size: 4vw;
+  line-height: 4.5vw;
   font-weight: bold;
   width: fit-content;
   padding-top: 0.5rem;
@@ -81,9 +92,9 @@
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
-  filter: drop-shadow(0rem 0rem 1rem #e1ff00);
-  -webkit-filter: drop-shadow(0rem 0rem 1rem #e1ff00);
-  text-shadow:  0 0 1rem #e1ff00, 2px 2px 1rem rgba(0, 0, 0, 0.6);
+  filter: drop-shadow(0rem 0rem 0.3rem #7f8251);
+  -webkit-filter: drop-shadow(0rem 0rem 0.3rem #7f8251);
+  text-shadow:  0 0 0.3rem #7f8251, 2px 2px 1rem rgba(0, 0, 0, 0.6);
 }
 .ContenidoBanner {
   color: #F0E6FF;
@@ -103,6 +114,7 @@
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   & h2 {
+    font-family: 'Great Vibes', cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
@@ -151,16 +163,18 @@
   margin: 5% auto 12% auto;
   text-align: center;
   & h2 {
+    font-family: 'Great Vibes', cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
   & h3 {
-    font-size: 2.5vw;
-    line-height: 3vw;
+    font-family: 'Great Vibes', cursive;
+    font-size: 3vw;
+    line-height: 3.5vw;
   }
   & p {
-    font-size: 2.1vw;
-    line-height: 2.6vw;
+    font-size: 1.7vw;
+    line-height: 2.2vw;
   }
   & .HistoryContainer_img {
     width: 60%;
@@ -242,7 +256,7 @@
     margin-top: 4rem;
     & .LocationContainer_text_info {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       & div {
         display: flex;
         flex-direction: column;
@@ -252,35 +266,36 @@
           line-height: 4.3vw;
         }
         & h3 {
+          font-family: 'Great Vibes', cursive;  
           font-size: 3.2vw;
           line-height: 3.7vw;
           font-weight: 500;
         }
         & h4 {
-          font-size: 2.7vw;
-          line-height: 3.4vw;
+          font-size: 2.1vw;
+          line-height: 2.6vw;
           text-align: center;
-          font-weight: 500;
         }
         & ul {
           margin: 0;
           list-style-type: circle;
           & li {
-            font-size: 2.7vw;
-            line-height: 3.4vw;
+            font-size: 1.7vw;
+            line-height: 2.2vw;
             font-weight: 500;
           }
         }
       }
     }
     & h2 {
+      font-family: 'Great Vibes', cursive;
       font-size: 3.8vw;
       line-height: 4.3vw;
       text-align: center;
     }
     & h3 {
-      font-size: 3.5vw;
-      line-height: 4vw;
+      font-size: 1.7vw;
+      line-height: 2.2vw;
       text-align: center;
       font-weight: 500;
     }
@@ -293,24 +308,6 @@
   color: white;
   border: none;
   text-decoration: none;
-  border-radius: 3rem;
-  -webkit-border-radius: 3rem;
-  -moz-border-radius: 3rem;
-  -ms-border-radius: 3rem;
-  -o-border-radius: 3rem;
-  transition: background-color 0.3s ease;
-  -webkit-transition: background-color 0.3s ease;
-  -moz-transition: background-color 0.3s ease;
-  -ms-transition: background-color 0.3s ease;
-  -o-transition: background-color 0.3s ease;
-}
-.ButtonHistory {
-  padding: 1rem 2rem;
-  background-color: #F7E8C0;
-  border: none;
-  text-decoration: none;
-  width: fit-content;
-  margin: 0 auto;
   border-radius: 3rem;
   -webkit-border-radius: 3rem;
   -moz-border-radius: 3rem;
@@ -345,12 +342,13 @@
       flex-direction: column;
       gap: 1rem;
       & h2 {
+        font-family: 'Great Vibes', cursive;
         font-size: 3.5vw;
         line-height: 4vw;
       }
       & h3 {
-        font-size: 2.5vw;
-        line-height: 3vw;
+        font-size: 1.7vw;
+        line-height: 2.2vw;
         font-weight: 500;
       }
       & p, ul {
@@ -385,8 +383,9 @@
   flex-direction: column;
   align-items: center;
   margin: 8% auto;
-  gap: 1rem;
+  gap: 3rem;
   & h2 {
+    font-family: 'Great Vibes', cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
@@ -417,17 +416,18 @@
         background-color: #F8F9FA;
         width: 50%;
         aspect-ratio: 1 / 1;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
+        transform: translate(-100%, 50%);
+        -webkit-transform: translate(-100%, 50%);
+        -moz-transform: translate(-100%, 50%);
+        -ms-transform: translate(-100%, 50%);
+        -o-transform: translate(-100%, 50%);
         border-radius: 0.5rem;
         -webkit-border-radius: 0.5rem;
         -moz-border-radius: 0.5rem;
         -ms-border-radius: 0.5rem;
         -o-border-radius: 0.5rem;
         & h3 {
+          font-family: 'Great Vibes', cursive;
           text-align: center;
           font-size: 2.5vw;
           line-height: 3vw;
@@ -453,6 +453,7 @@
   overflow: hidden;
   cursor: pointer;
   z-index: 1;
+  font-family: 'Great Vibes', cursive;
   font-weight: 400;
   font-size: clamp(1.5rem, 2.2vw, 2.5rem);
   color: var(--color);
@@ -500,6 +501,7 @@
   flex-direction: column;
   gap: 1rem;
   & h2 {
+    font-family: 'Great Vibes', cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
@@ -522,7 +524,7 @@
       position: absolute;
       top: 50%;
       left: 100%;
-      width: 60%;
+      width: 50%;
       min-height: 40vh;
       display: flex;
       flex-direction: column;
@@ -530,11 +532,11 @@
       align-items: center;
       background-color: #E7D4CA;
       padding: 1rem 2rem;
-      transform: translate(-27%, -50%);
-      -webkit-transform: translate(-27%, -50%);
-      -moz-transform: translate(-27%, -50%);
-      -ms-transform: translate(-27%, -50%);
-      -o-transform: translate(-27%, -50%);
+      transform: translate(-32%, -50%);
+      -webkit-transform: translate(-32%, -50%);
+      -moz-transform: translate(-32%, -50%);
+      -ms-transform: translate(-32%, -50%);
+      -o-transform: translate(-32%, -50%);
       & .DressCodeContainer_position_flowers {
         width: 50%;
         margin: 2% auto;
@@ -548,10 +550,11 @@
         }
       }
       & p {
-        font-size: 2.1vw;
-        line-height: 2.6vw;
+        font-size: 1.7vw;
+        line-height: 2.2vw;
       }
       & h3 {
+        font-family: 'Great Vibes', cursive;
         font-size: 2.5vw;
         line-height: 3vw;
       }
@@ -564,6 +567,7 @@
   margin: 8% auto;
   text-align: center;
   & h2 {
+    font-family: 'Great Vibes', cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
@@ -583,32 +587,26 @@
 }
 .item1 {
   grid-row: span 3;
-  /* background-color: red; */
   background-image: url(./assets/boda_3.webp);
 }
 .item2 {
   grid-row: span 2;
-  /* background-color: rgb(94, 188, 51); */
   background-image: url(./assets/boda_6.webp);
 }
 .item3 {
   grid-row: span 3;
-  /* background-color: rgb(58, 77, 170); */
   background-image: url(./assets/boda_7.webp);
 }
 .item4 {
   grid-row: span 3;
-  /* background-color: rgb(196, 45, 215); */
   background-image: url(./assets/boda_14.webp);
 }
 .item5 {
   grid-row: span 2;
-  /* background-color: rgb(42, 137, 42); */
-  background-image: url(./assets/boda_15.webp);
+  background-image: url(./assets/boda_13.webp);
 }
 .item6 {
   grid-row: span 2;
-  /* background-color: rgb(167, 172, 33); */
   background-image: url(./assets/boda_17.webp);
 }
 .EventGridContainer_img {
@@ -630,6 +628,7 @@
   flex-direction: column;
   gap: 1rem;
   & h2 {
+    font-family: 'Great Vibes', cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
@@ -658,8 +657,8 @@
   }
   & h2 {
     z-index: 10;
-    font-size: 2vw;
-    line-height: 2.5vw;
+    font-size: 1.5vw;
+    line-height: 2vw;
     color: #F0E6FF;
   }
   & a {
@@ -677,7 +676,7 @@
 @media screen and (min-width: 1280px) {
   .FooterContainer {
       & .ImgLinkedin {
-          width: 15%;
+          width: 10%;
       }
     }
   }
@@ -731,8 +730,8 @@
       & .LocationContainer_text_info {
         & div {
           & h3 {
-            font-size: 1.8rem;
-            line-height: 2.3rem;
+            font-size: 2.1rem;
+            line-height: 2.6rem;
           }
           & h4 {
             font-size: 1.4rem;
@@ -740,8 +739,8 @@
           }
           & ul {
             & li {
-              font-size: 1.4rem;
-              line-height: 1.9rem;
+              font-size: 1.2rem;
+              line-height: 1.7rem;
             }
           }
         }
@@ -751,8 +750,8 @@
         line-height: 3rem;
       }
       & h3 {
-        font-size: 1.8rem;
-        line-height: 2.3rem;
+        font-size: 1.4rem;
+        line-height: 1.9rem;
       }
     }
   }
@@ -763,13 +762,15 @@
       flex-direction: column;
       & .GalleryContainer_text {
         width: 100%;
+        text-align: center;
+        margin-bottom: 3rem;
         & h2 {
           font-size: 2.5rem;
           line-height: 3rem;
         }
         & h3 {
-          font-size: 1.8rem;
-          line-height: 2.3rem;
+          font-size: 1.2rem;
+          line-height: 1.7rem;
         }
         & p, ul {
           font-size: 1.5rem;
@@ -792,13 +793,17 @@
     line-height: 4rem;
   }
   .ContenidoBanner {
+    & h2 {
+      font-size: 3.5rem;
+      line-height: 4rem;
+    }
     & h3 {
-      font-size: 2.5rem;
-      line-height: 3rem;
+      font-size: 2rem;
+      line-height: 2.5rem;
     }
     & h4 {
-      font-size: 1.5rem;
-      line-height: 2rem;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
     }
   }
   .HistoryContainer_anillos {
@@ -811,12 +816,12 @@
       line-height: 3rem;
     }
     & h3 {
-      font-size: 1.8rem;
-      line-height: 2.3rem;
+      font-size: 2.1rem;
+      line-height: 2.6rem;
     }
     & p {
-      font-size: 1.5rem;
-      line-height: 2rem;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
     }
     & .HistoryContainer_img {
       width: 60%;
@@ -863,8 +868,8 @@
         -ms-transform: translate(0%, -50%);
         -o-transform: translate(0%, -50%);
         & p {
-          font-size: 1.5rem;
-          line-height: 2rem;
+          font-size: 1.2rem;
+          line-height: 1.7rem;
         }
         & h3 {
           font-size: 1.8rem;
@@ -900,26 +905,36 @@
   .ButtonItinerario {
     bottom: 0%;
   }
+  .FooterContainer {
+    & h2 {
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
   .Container_ControlMusica {
-    width: 5rem;
+    width: 2.5rem;
+    padding: 0.5rem;
   }
   .PrincipalTitle {
-    font-size: 2.5rem;
-    line-height: 3rem;
-    padding-top: 0.7rem;
+    font-size: 3rem;
+    line-height: 3.5rem;
   }
   .ContenidoBanner {
     top: 56%;
+    & h2 {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
     & h3 {
-      font-size: 1.8rem;
-      line-height: 2.3rem;
+      font-size: 1.7rem;
+      line-height: 2.2rem;
     }
     & h4 {
-      font-size: 1.3rem;
-      line-height: 1.8rem;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
     }
   }
   .HistoryContainer_anillos {
@@ -933,12 +948,12 @@
       line-height: 3rem;
     }
     & h3 {
-      font-size: 1.8rem;
-      line-height: 2.3rem;
+      font-size: 2rem;
+      line-height: 2.5rem;
     }
     & p {
-      font-size: 1.5rem;
-      line-height: 2rem;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
     }
     & .HistoryContainer_img {
         width: 100%;
@@ -980,29 +995,30 @@
         & div {
           align-items: center;
           & h3 {
-            font-size: 2.2rem;
-            line-height: 2.7rem;
+            font-size: 2.1rem;
+            line-height: 2.6rem;
           }
           & h4 {
-            font-size: 1.8rem;
-            line-height: 2.3rem;
+            font-size: 1.4rem;
+            line-height: 1.9rem;
           }
           & ul {
             width: fit-content;
+            text-align: center;
             & li {
-              font-size: 1.8rem;
-              line-height: 2.3rem;
+              font-size: 1.2rem;
+              line-height: 1.7rem;
             }
           }
         }
       }
       & h2 {
-        font-size: 3rem;
-        line-height: 3.5rem;
+        font-size: 2.5rem;
+        line-height: 3rem;
       }
       & h3 {
-        font-size: 2.2rem;
-        line-height: 2.7rem;
+        font-size: 1.4rem;
+        line-height: 1.9rem;
       }
     }
   }
@@ -1014,14 +1030,15 @@
       justify-content: space-around;
       & .GalleryContainer_text {
         width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
         & h2 {
           font-size: 2.5rem;
           line-height: 3rem;
-          text-align: center;
         }
         & h3 {
-          font-size: 1.8rem;
-          line-height: 2.3rem;
+          font-size: 1.2rem;
+          line-height: 1.7rem;
         }
         & p {
           font-size: 1.5rem;
@@ -1046,6 +1063,8 @@
   .GiftTableContainer {
     width: 87%;
     margin: 3rem auto;
+    gap: 1.5rem;
+    text-align: center;
     & h2 {
       font-size: 2.5rem;
       line-height: 3rem;
@@ -1059,6 +1078,8 @@
         }
         & div {
           width: 37%;
+          top: 50%;
+          left: 98%;
           & h3 {
             font-size: 1.8rem;
             line-height: 2.3rem;
@@ -1102,8 +1123,8 @@
           gap: 1rem;
         }
         & p {
-          font-size: 1.5rem;
-          line-height: 2rem;
+          font-size: 1.2rem;
+          line-height: 1.7rem;
         }
         & h3 {
           font-size: 1.8rem;
@@ -1143,6 +1164,9 @@
     & h2 {
       font-size: 1.2rem;
       line-height: 1.7rem;
+    }
+    & .ImgLinkedin {
+      width: 1.6rem;
     }
   }
   .ButtonItinerario {

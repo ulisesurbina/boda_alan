@@ -121,14 +121,13 @@ function Body({ reproduciendo, toggleMusica }) {
             <button id='silenceButton' className='Container_ControlMusica' onClick={toggleMusica}>
                 {reproduciendo ? <img className='ControlMusica' src={silencio} alt="Silencio"/> : <img className='ControlMusica' src={volumen} alt="Volumen"/>}
             </button>
-            <section className='HistoryContainer'>
+            <section id='NuestraHistoria' className='HistoryContainer'>
                 <picture className='HistoryContainer_anillos'>
                     <img src={anillos} alt="flores presentación" />
                 </picture>
                 <h2>Nuestra Historia</h2>
-                <p>El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de 5 años juntos, decidimos dar el siguiente paso en nuestro camino y queremos que seas parte de este día tan especial.</p>
-                <p>Te invitamos a ser parte de este momento tan especial en nuestras vidas.</p>
-                <p>Tu presencia será el mejor regalo.</p>
+                <p>El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de cinco años juntos, hemos decidido dar el siguiente paso, y esta historia no estaría completa sin tu presencia.</p>
+                <p>Te invitamos a ser parte de este momento único en nuestras vidas.</p>
                 <h3>Se agradece la comprensión de que este evento está reservado para adultos solamente.</h3>
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
@@ -166,22 +165,22 @@ function Body({ reproduciendo, toggleMusica }) {
                             </ul>
                         </div>
                     </section>
-                    <h3>Padrinos de Velación</h3>
-                    <h3>Nadia Albarran Palacios &nbsp; & &nbsp; Rafael Fuente Carbajal</h3>
+                    <h3><b>Padrinos de Velación:</b></h3>
+                    <h3>Nadia Albarran Palacios & Rafael Fuente Carbajal</h3>
                 </div>
             </section>
             <section className='GalleryContainer'>
                 <div className='GalleryContainer_principal'>
                     <div className='GalleryContainer_text'>
                         <h2>Programa del Evento</h2>
-                        <h3>Ceremonia Religiosa: 15:00 - 16:00 hrs</h3>
-                        <h3>Ceremonia Cívica: 17:00 - 17:30 hrs</h3>
-                        <h3>Recepción en Jardín: 17:30 - 18:00 hrs</h3>
-                        <h3>Inicio del Evento en Jardín: 18:00 hrs</h3>
-                        <h3>Cena: 18:30 - 19:30 hrs</h3>
-                        <h3>Fiesta: 19:30 - 03:00 hrs</h3>
-                        <h3>Fin del Evento en Jardín: 03:00 hrs</h3>
-                        <h3>After Party: 03:00 - ∞ hrs</h3>
+                        <h3><b>Ceremonia Religiosa:</b> 15:00 - 16:00 hrs</h3>
+                        <h3><b>Ceremonia Cívica:</b> 17:00 - 17:30 hrs</h3>
+                        <h3><b>Recepción en Jardín:</b> 17:30 - 18:00 hrs</h3>
+                        <h3><b>Inicio del Evento en Jardín:</b> 18:00 hrs</h3>
+                        <h3><b>Cena:</b> 18:30 - 19:30 hrs</h3>
+                        <h3><b>Fiesta:</b> 19:30 - 03:00 hrs</h3>
+                        <h3><b>Fin del Evento en Jardín:</b> 03:00 hrs</h3>
+                        <h3><b>After Party:</b> 03:00 - ∞ hrs</h3>
                         <Button to="/itinerario">Ver detalles</Button>
                     </div>
                     <picture className='GalleryContainer_imgs'>
@@ -193,7 +192,7 @@ function Body({ reproduciendo, toggleMusica }) {
                 </picture>
             </section>
             <section className='GiftTableContainer'>
-                <h2>Mesa de Regalos</h2>
+                <h2>Tu presencia será el mejor regalo...</h2>
                 <div className='GiftTableContainer_grid'>
                     <div className='GiftTableContainer_gridItem'>
                         <picture>
@@ -223,7 +222,7 @@ function Body({ reproduciendo, toggleMusica }) {
                         </div>
                     </div>
                 </div>
-                <a className="BtnExternoGlobal" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51711361" target='_blank'>Ver lista de regalos</a>
+                <a className="BtnExternoGlobal" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51711361" target='_blank'>Ver mesa de regalos</a>
             </section>
             <section className='DressCodeContainer'>
                 <h2>Código de Vestimenta</h2>
@@ -269,13 +268,13 @@ function Body({ reproduciendo, toggleMusica }) {
                         nextButtonText="Siguiente"
                         >
                         <Step>
-                            <h3>Agradecemos tu interes</h3>
+                            <h3><b>Agradecemos tu interes</b></h3>
                             <p>Sigue los siguientes pasos para tu registro</p>
                         </Step>
                         <Step>
-                            <h3>El evento es privado, no se puede acceder sin registro ni invitación</h3>
+                            <p><b>El evento es privado, no se puede acceder sin registro ni invitación</b></p>
                             <p>* Pueden surgir cambios sin previo aviso</p>
-                            <h3>Ingresa los datos solicitados</h3>
+                            <p><b>Ingresa los datos solicitados</b></p>
                             <input 
                                 placeholder="Nombre"  
                                 name="nombre" 
@@ -317,7 +316,7 @@ function Body({ reproduciendo, toggleMusica }) {
                         </Step>
                         <Step>
                             <h3>Gracias por registrarte</h3>
-                            <h3>¿Tienes alguna duda respecto al evento?</h3>
+                            <p>¿Tienes alguna duda respecto al evento?</p>
                             <input 
                                 placeholder="Escribe tus dudas"
                                 name="dudas" 

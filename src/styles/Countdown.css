@@ -12,6 +12,7 @@
         align-items: center;
         justify-content: center;
         & h4, h5 {
+            font-family: 'Great Vibes', cursive;
             font-size: 1.7vw;
             line-height: 2.2vw;
         }
@@ -27,8 +28,8 @@
         }
         & div {
             & h4, h5 {
-                font-size: 1.5rem;
-                line-height: 2rem;
+                font-size: 2rem;
+                line-height: 2.5rem;
             }
         }
     }
@@ -43,8 +44,8 @@
         }
         & div {
             & h4, h5 {
-                font-size: 1.3rem;
-                line-height: 1.8rem;
+                font-size: 1.6rem;
+                line-height: 2.1rem;
             }
         }
     }
