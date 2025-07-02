@@ -18,7 +18,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 40%;
+    height: 30%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgb(254, 249, 241) 100%);
     pointer-events: none;
   }
@@ -256,7 +256,18 @@
     margin-top: 4rem;
     & .LocationContainer_text_info {
       display: flex;
+      flex-direction: column;
       justify-content: space-evenly;
+      gap: 1rem;
+      & .LocationContainer_text_info_padres {
+        flex-direction: row;
+        justify-content: space-around;
+        & section {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
       & div {
         display: flex;
         flex-direction: column;
@@ -272,8 +283,8 @@
           font-weight: 500;
         }
         & h4 {
-          font-size: 2.1vw;
-          line-height: 2.6vw;
+          font-size: 1.7vw;
+          line-height: 2.2vw;
           text-align: center;
         }
         & ul {
@@ -336,6 +347,7 @@
   & .GalleryContainer_principal {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     & .GalleryContainer_text {
       width: 40%;
       display: flex;
@@ -357,7 +369,7 @@
       }
     }
     & .GalleryContainer_imgs {
-      width: 40%;
+      width: 60%;
       & img {
         width: 100%;
         height: 100%;
@@ -675,19 +687,19 @@
 
 @media screen and (min-width: 1280px) {
   .FooterContainer {
-      & .ImgLinkedin {
-          width: 10%;
-      }
+    & .ImgLinkedin {
+      width: 10%;
     }
   }
+}
   
-  @media screen and (min-width: 3000px) {
-      .FooterContainer {
-          & .ImgLinkedin {
-              width: 32%;
-          }
-      }
+@media screen and (min-width: 3000px) {
+  .FooterContainer {
+    & .ImgLinkedin {
+      width: 32%;
+    }
   }
+}
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .Container_ControlMusica {
@@ -992,6 +1004,10 @@
       & .LocationContainer_text_info {
         flex-direction: column;
         gap: 1rem;
+        & .LocationContainer_text_info_padres {
+          flex-direction: column;
+          justify-content: center;
+        }
         & div {
           align-items: center;
           & h3 {
@@ -1155,11 +1171,6 @@
       line-height: 3rem;
     }
   }
-  .Gmap_canvas {
-    margin: 3rem 0;
-    width: 100%;
-    height: 40vh;
-  }
   .FooterContainer {
     & h2 {
       font-size: 1.2rem;
@@ -1175,6 +1186,38 @@
 }
 
 @media screen and (max-width: 400px) {
+  .PrincipalTitle {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .ContenidoBanner {
+    top: 48%;
+    & h2 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+    & h3 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    & h4 {
+      font-size: 1.1rem;
+      line-height: 1.6rem;
+    }
+  }
+  .CountdownContainer {
+    & div {
+      & h4, h5 {
+        font-size: 1.3rem !important;
+        line-height: 1.8rem !important;
+      }
+    }
+  }
+  .EventGridContainer {
+    & .EventGridContainer_imgGrid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
   .GalleryContainer {
     & .GalleryContainer_principalImg {
       top: 87%;

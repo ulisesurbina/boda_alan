@@ -2,7 +2,9 @@ import '../App.css'
 import Banner from './BannerN';
 import Button from '../utils/Button';
 import CircularGallery from '../utils/CircularGallery'
+import RollingGallery from '../utils/RollingGallery'
 import { useState } from 'react';
+import AOS from 'aos';
 import Stepper, { Step } from '../components/Stepper';
 import silencio from '../assets/silencio.webp'
 import volumen from '../assets/volumen.webp'
@@ -121,13 +123,13 @@ function Body({ reproduciendo, toggleMusica }) {
             <button id='silenceButton' className='Container_ControlMusica' onClick={toggleMusica}>
                 {reproduciendo ? <img className='ControlMusica' src={silencio} alt="Silencio"/> : <img className='ControlMusica' src={volumen} alt="Volumen"/>}
             </button>
-            <section id='NuestraHistoria' className='HistoryContainer'>
-                <picture className='HistoryContainer_anillos'>
+            <section id='NuestraHistoria' className='HistoryContainer' data-aos="fade-up">
+                <picture className='HistoryContainer_anillos' data-aos="zoom-in">
                     <img src={anillos} alt="flores presentación" />
                 </picture>
-                <h2>Nuestra Historia</h2>
-                <p>El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de cinco años juntos, hemos decidido dar el siguiente paso, y esta historia no estaría completa sin tu presencia.</p>
-                <p>Te invitamos a ser parte de este momento único en nuestras vidas.</p>
+                <h2 data-aos="zoom-in">Nuestra Historia</h2>
+                <p data-aos="zoom-in">El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de cinco años juntos, hemos decidido dar el siguiente paso, y esta historia no estaría completa sin tu presencia.</p>
+                <p data-aos="zoom-in">Te invitamos a ser parte de este momento único en nuestras vidas.</p>
                 <h3>Se agradece la comprensión de que este evento está reservado para adultos solamente.</h3>
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
@@ -146,32 +148,36 @@ function Body({ reproduciendo, toggleMusica }) {
                     </picture>
                 </div>
                 <div className='LocationContainer_text'>
-                    <h2>Con la bendición de Dios y nuestros Padres</h2>
-                    <section className='LocationContainer_text_info'>
+                    <h2 data-aos="zoom-in-up">Nuestra Boda</h2>
+                    <section className='LocationContainer_text_info' data-aos="zoom-in-up">
                         <div>
-                            <h3>Araceli Zuleima Reyes Salgado</h3>
-                            <h4>Padres:</h4>
-                            <ul>
-                                <li>Paula Salgado Rogel</li>
-                                <li>Roberto Reyes Rojas</li>
-                            </ul>
+                            <h3 >Araceli Zuleima Reyes Salgado &nbsp; & &nbsp; Mario Alan Albarran Guerrero</h3>
                         </div>
-                        <div>
-                            <h3>Mario Alan Albarran Guerrero</h3>
-                            <h4>Padres:</h4>
-                            <ul>
-                                <li>María Elena Guerrero Beristain</li>
-                                <li>Martín Albarran Trujillo</li>
-                            </ul>
+                        <div className='LocationContainer_text_info_padres'>
+                            <section>
+                                <h4>Padres de la novia:</h4>
+                                <ul>
+                                    <li>Paula Salgado Rogel</li>
+                                    <li>Roberto Reyes Rojas</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h4>Padres del novio:</h4>
+                                <ul>
+                                    <li>María Elena Guerrero Beristain</li>
+                                    <li>Martín Albarran Trujillo</li>
+                                </ul>
+                            </section>
                         </div>
+                        <h2>Con la bendición de Dios y nuestros Padres</h2>
                     </section>
-                    <h3><b>Padrinos de Velación:</b></h3>
-                    <h3>Nadia Albarran Palacios & Rafael Fuente Carbajal</h3>
+                    <h3 data-aos="zoom-in-up"><b>Padrinos de Velación:</b></h3>
+                    <h3 data-aos="zoom-in-up">Nadia Albarran Palacios & Rafael Fuente Carbajal</h3>
                 </div>
             </section>
             <section className='GalleryContainer'>
                 <div className='GalleryContainer_principal'>
-                    <div className='GalleryContainer_text'>
+                    <div className='GalleryContainer_text' data-aos="zoom-in-right">
                         <h2>Programa del Evento</h2>
                         <h3><b>Ceremonia Religiosa:</b> 15:00 - 16:00 hrs</h3>
                         <h3><b>Ceremonia Cívica:</b> 17:00 - 17:30 hrs</h3>
@@ -180,11 +186,12 @@ function Body({ reproduciendo, toggleMusica }) {
                         <h3><b>Cena:</b> 18:30 - 19:30 hrs</h3>
                         <h3><b>Fiesta:</b> 19:30 - 03:00 hrs</h3>
                         <h3><b>Fin del Evento en Jardín:</b> 03:00 hrs</h3>
-                        <h3><b>After Party:</b> 03:00 - ∞ hrs</h3>
+                        <h3><b>After Party:</b> 03:00 hrs - ∞ hrs</h3>
                         <Button to="/itinerario">Ver detalles</Button>
                     </div>
                     <picture className='GalleryContainer_imgs'>
-                        <img src={imgBody2_8} alt="img sobre otra" />
+                        {/* <img src={imgBody2_8} alt="img sobre otra" /> */}
+                        <RollingGallery autoplay={true} pauseOnHover={true} />
                     </picture>
                 </div>
                 <picture className='GalleryContainer_principalImg'>
@@ -192,8 +199,8 @@ function Body({ reproduciendo, toggleMusica }) {
                 </picture>
             </section>
             <section className='GiftTableContainer'>
-                <h2>Tu presencia será el mejor regalo...</h2>
-                <div className='GiftTableContainer_grid'>
+                <h2 data-aos="zoom-in">Tu presencia será el mejor regalo</h2>
+                <div className='GiftTableContainer_grid' data-aos="zoom-in">
                     <div className='GiftTableContainer_gridItem'>
                         <picture>
                             <img src={imgBody9} alt="img bg" />
@@ -222,11 +229,11 @@ function Body({ reproduciendo, toggleMusica }) {
                         </div>
                     </div>
                 </div>
-                <a className="BtnExternoGlobal" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51711361" target='_blank'>Ver mesa de regalos</a>
+                <a className="BtnExternoGlobal" data-aos="zoom-in" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51711361" target='_blank'>Ver mesa de regalos</a>
             </section>
-            <section className='DressCodeContainer'>
-                <h2>Código de Vestimenta</h2>
-                <div className='DressCodeContainer_position'>
+            <section className='DressCodeContainer' >
+                <h2 data-aos="fade-up">Código de Vestimenta</h2>
+                <div className='DressCodeContainer_position' data-aos="fade-up">
                     <picture className='DressCodeContainer_position_img'>
                         <img src={imgBody12} alt="img referencia" />
                     </picture>
@@ -242,26 +249,27 @@ function Body({ reproduciendo, toggleMusica }) {
                 </div>
             </section>
             <section className='EventGridContainer'>
-                <h2>Nuestra pasión es su evento perfecto</h2>
-                <section className='EventGridContainer_imgGrid'>
-                    <div className="item item1"></div>
-                    <div className="item item2"></div>
-                    <div className="item item3"></div>
-                    <div className="item item4"></div>
-                    <div className="item item5"></div>
-                    <div className="item item6"></div>
+                <h2 data-aos="fade-up">Momentos únicos, recuerdos eternos</h2>
+                <section className='EventGridContainer_imgGrid' >
+                    <div className="item item1" data-aos="fade-up"></div>
+                    <div className="item item2" data-aos="fade-up"></div>
+                    <div className="item item3" data-aos="fade-up"></div>
+                    <div className="item item4" data-aos="fade-up"></div>
+                    <div className="item item5" data-aos="fade-up"></div>
+                    <div className="item item6" data-aos="fade-up"></div>
                 </section>
                 <picture className='EventGridContainer_img'>
                     <img src={flower45} alt="flores inclinada" />
                 </picture>
             </section>
             <section id='FormAbsolute' className='FormContainer'>
-                <h2>Confirma tu Asistencia</h2>
-                <section>
+                <h2 data-aos="zoom-in-up">Confirma tu Asistencia</h2>
+                <section data-aos="zoom-in-up">
                     <Stepper
                         initialStep={1}
                         onStepChange={(step) => {
                             console.log(step);
+                            AOS.refresh();
                         }}
                         onFinalStepCompleted={sendToGoogleSheets}
                         backButtonText="Anterior"
@@ -328,17 +336,6 @@ function Body({ reproduciendo, toggleMusica }) {
                             {isLoading && <p>Enviando datos...</p>}
                         </Step>
                     </Stepper>
-                </section>
-                <section id='VenueMaps'>
-                    <div className="Gmap_canvas">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.3378531744365!2d-98.92332909999999!3d19.499595799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6788ce8df21%3A0x41a0ce88fc184fa1!2sHacienda%20de%20los%20Angeles!5e1!3m2!1sen!2smx!4v1750052896568!5m2!1sen!2smx" width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Hacienda de los Angeles"></iframe>
-                    </div>
-                    <div className="Gmap_canvas">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.964650124654!2d-98.89754769999999!3d19.477072900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6ee8368ee63%3A0x43ce9bb80abc8574!2sParroquia%20de%20San%20Bernardino%20de%20Siena!5e1!3m2!1sen!2smx!4v1750053050182!5m2!1sen!2smx" width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title='Parroquia de San Bernardino de Siena'></iframe>
-                    </div>
-                    <div className="Gmap_canvas">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1501.882257207231!2d-98.9141162!3d19.5269288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6055738a4c9%3A0xbe8f7e3bf16a9092!2sCorregidora%2C%20Vicente%20Riva%20Palacio%2C%2056200%20Vicente%20Riva%20Palacio%2C%20M%C3%A9x.!5e1!3m2!1sen!2smx!4v1719411144455!5m2!1sen!2smx" width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Ubicación After" ></iframe>
-                    </div>
                 </section>
             </section>
         </div>

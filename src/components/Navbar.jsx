@@ -23,7 +23,7 @@ function Navbar() {
           <Link smooth to="/#FormAbsolute">Confirma tu asistencia</Link>
         </div>
         <div className='NavbarContainer__section'>
-          <Link smooth to="/#VenueMaps">Venue</Link>
+          <Link smooth to="/itinerario/#VenueMaps">Venue</Link>
         </div>
       </section>
     </div>

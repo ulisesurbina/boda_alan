@@ -1,5 +1,7 @@
 import React, { useRef, useState,useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './App.css'
 import Navbar from './components/Navbar.jsx'
 import Body from './components/Body.jsx'
@@ -39,6 +41,13 @@ function App() {
       document.removeEventListener('click', handleUserClick);
     };
   }, [musicStarted]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      once: false,
+    });
+  }, []);
 
   return (
     <Router>

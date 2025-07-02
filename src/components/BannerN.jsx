@@ -13,6 +13,7 @@ function Banner({}) {
         <img src={bannerMano} alt="test" />
         <div className='ContenidoBanner'>
           <RotatingText
+            data-aos="zoom-out"
             texts={['Araceli & Alan', 'Alan & Araceli']}
             mainClassName="PrincipalTitle"
             staggerFrom="last"
@@ -24,8 +25,8 @@ function Banner({}) {
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             rotationInterval={5000}
           />
-          <h2>18 Octubre 2025</h2>
-          <div className='ContenidoBanner_texto'>
+          <h2 data-aos="zoom-out">18 Octubre 2025</h2>
+          <div className='ContenidoBanner_texto' data-aos="zoom-out">
             <h3>¡Bienvenidos a nuestra historia de amor! <span className="Heart">♥</span></h3>
             <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Contar con tu presencia será un verdadero honor, y agradecemos de antemano tu confirmación. <br /> Esperamos verte dentro de:</h4>
           </div>

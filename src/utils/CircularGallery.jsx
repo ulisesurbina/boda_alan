@@ -23,7 +23,6 @@ import history10 from '../assets/historia_10.jpeg'
 import history11 from '../assets/historia_11.jpeg'
 import history12 from '../assets/historia_12.jpeg'
 import history13 from '../assets/historia_13.jpeg'
-import history14 from '../assets/historia_14.jpeg'
 import history15 from '../assets/historia_15.jpeg'
 import history16 from '../assets/historia_16.jpeg'
 import history17 from '../assets/historia_17.jpeg'
@@ -364,7 +363,6 @@ class App {
       { image: history11, text: '' },
       { image: history12, text: '' },
       { image: history13, text: '' },
-      { image: history14, text: '' },
       { image: history15, text: '' },
       { image: history16, text: '' },
       { image: history17, text: '' },
