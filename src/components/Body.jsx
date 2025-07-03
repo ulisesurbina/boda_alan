@@ -128,9 +128,9 @@ function Body({ reproduciendo, toggleMusica }) {
                     <img src={anillos} alt="flores presentación" />
                 </picture>
                 <h2 data-aos="zoom-in">Nuestra Historia</h2>
-                <p data-aos="zoom-in">El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de cinco años juntos, hemos decidido dar el siguiente paso, y esta historia no estaría completa sin tu presencia.</p>
+                <p data-aos="zoom-in">El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de cinco años juntos, hemos decidido dar el siguiente paso.</p>
                 <p data-aos="zoom-in">Te invitamos a ser parte de este momento único en nuestras vidas.</p>
-                <h3>Se agradece la comprensión de que este evento está reservado para adultos solamente.</h3>
+                <h3>Queremos que este momento tan especial lo disfrutes tanto como nosotros, por eso hemos decidido que el evento sea solo para adultos.</h3>
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
                 </picture>
@@ -148,10 +148,9 @@ function Body({ reproduciendo, toggleMusica }) {
                     </picture>
                 </div>
                 <div className='LocationContainer_text'>
-                    <h2 data-aos="zoom-in-up">Nuestra Boda</h2>
                     <section className='LocationContainer_text_info' data-aos="zoom-in-up">
                         <div>
-                            <h3 >Araceli Zuleima Reyes Salgado &nbsp; & &nbsp; Mario Alan Albarran Guerrero</h3>
+                            <h3>Araceli Zuleima Reyes Salgado &nbsp; & &nbsp; Mario Alan Albarran Guerrero</h3>
                         </div>
                         <div className='LocationContainer_text_info_padres'>
                             <section>
@@ -172,7 +171,7 @@ function Body({ reproduciendo, toggleMusica }) {
                         <h2>Con la bendición de Dios y nuestros Padres</h2>
                     </section>
                     <h3 data-aos="zoom-in-up"><b>Padrinos de Velación:</b></h3>
-                    <h3 data-aos="zoom-in-up">Nadia Albarran Palacios & Rafael Fuente Carbajal</h3>
+                    <h3 data-aos="zoom-in-up">Nadia Albarran Palacios & Rafael Fuerte Carbajal</h3>
                 </div>
             </section>
             <section className='GalleryContainer'>

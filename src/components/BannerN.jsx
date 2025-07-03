@@ -12,6 +12,7 @@ function Banner({}) {
       <div className='HeroBanner'>
         <img src={bannerMano} alt="test" />
         <div className='ContenidoBanner'>
+          <h2 data-aos="zoom-out">Nuestra Boda</h2>
           <RotatingText
             data-aos="zoom-out"
             texts={['Araceli & Alan', 'Alan & Araceli']}
@@ -25,10 +26,14 @@ function Banner({}) {
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             rotationInterval={5000}
           />
-          <h2 data-aos="zoom-out">18 Octubre 2025</h2>
           <div className='ContenidoBanner_texto' data-aos="zoom-out">
-            <h3>¡Bienvenidos a nuestra historia de amor! <span className="Heart">♥</span></h3>
-            <h4>Nos emociona compartir con ustedes este momento tan especial. <br /> Contar con tu presencia será un verdadero honor, y agradecemos de antemano tu confirmación. <br /> Esperamos verte dentro de:</h4>
+            <h5>¡Bienvenidos a nuestra historia de amor! <span className="Heart">♥</span></h5>
+            <h5>"Uno solo puede ser vencido, pero dos pueden resistir. <br /> ¡La cuerda de tres hilos no se rompe fácilmente!" - Eclesiastés 4:12</h5>
+            <h4>Tenemos el honor de invitarte a la celebración de nuestra unión en matrimonio el próximo:</h4>
+          </div>
+          <h2>18 Octubre 2025</h2>
+          <div className='ContenidoBanner_texto'>
+            <h4>Agradecemos de antemano tu confirmación, esperamos verte dentro de:</h4>
           </div>
           <Countdown />      
         </div>
