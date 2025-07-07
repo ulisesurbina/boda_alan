@@ -11,36 +11,32 @@ import audiomp3 from '../public/original.mp3';
 
 function App() {
   const audioRef = useRef(null);
-  const [reproduciendo, setReproduciendo] = useState(true);
-  const [musicStarted, setMusicStarted] = useState(false);
+  const [reproduciendo, setReproduciendo] = useState(false);
 
   const toggleMusica = () => {
-    if (audioRef.current) {
-      if (reproduciendo) {
-        audioRef.current.volume = 0;
-      } else {
-        audioRef.current.volume = 1;
-      }
-      setReproduciendo(!reproduciendo);
-    }
+    setReproduciendo(prev => !prev);
   };
 
-   useEffect(() => {
-    const handleUserClick = () => {
-      if (!musicStarted && audioRef.current) {
-        audioRef.current.currentTime = 4;
-        audioRef.current.volume = 1;
-        audioRef.current.play()
-          .then(() => setReproduciendo(true))
-          .catch(() => setReproduciendo(false));
-        setMusicStarted(true);
+  useEffect(() => {
+    if (audioRef.current) {
+      if (reproduciendo) {
+        if (!audioRef.current) {
+          audioRef.current.currentTime = 4;
+          audioRef.current = true;
+        }
+        audioRef.current.play().catch(err => console.error("Error al reproducir:", err));
+      } else {
+        audioRef.current.pause();
       }
-    };
-    document.addEventListener('click', handleUserClick, { once: true });
-    return () => {
-      document.removeEventListener('click', handleUserClick);
-    };
-  }, [musicStarted]);
+    }
+  }, [reproduciendo]);
+
+  const handleEnded = () => {
+    if (reproduciendo && audioRef.current) {
+      audioRef.current.currentTime = 4;
+      audioRef.current.play();
+    }
+  };
 
   useEffect(() => {
     AOS.init({
@@ -57,7 +53,7 @@ function App() {
           <Route path="/itinerario" element={<LandingItinerario />} />
         </Routes>
       <Footer />
-      <audio ref={audioRef} loop autoPlay>
+      <audio ref={audioRef} onEnded={handleEnded} loop autoPlay>
         <source src={audiomp3} type="audio/mp3" />
         Tu navegador no soporta audio HTML5.
       </audio>

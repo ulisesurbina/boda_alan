@@ -33,7 +33,7 @@ const Countdown = () => {
   }, [countDownDate]);
 
   return (
-    <div className="CountdownContainer">
+    <div className="CountdownContainer" data-aos="zoom-in">
         <div>
             <h4>{timeLeft.days}</h4>
             <h5 id="relojDias">Días</h5>

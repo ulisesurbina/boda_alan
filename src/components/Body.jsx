@@ -6,14 +6,13 @@ import RollingGallery from '../utils/RollingGallery'
 import { useState } from 'react';
 import AOS from 'aos';
 import Stepper, { Step } from '../components/Stepper';
-import silencio from '../assets/silencio.webp'
-import volumen from '../assets/volumen.webp'
+import pausa from '../assets/pausa.webp'
+import play from '../assets/play.webp'
 import flowers from '../assets/flowers.png'
 import dress from '../assets/vestimenta.webp'
 import imgBody1 from '../assets/boda_12reflec.webp'
 import flowersCircle from '../assets/flowersCircle.png'
 import imgBodyCircle from '../assets/boda_6.webp'
-import imgBody2_8 from '../assets/imgBody2_8.png'
 import flowers90 from '../assets/flowers90.png'
 import imgBody9 from '../assets/boda_2.webp'
 import imgBody10 from '../assets/boda_4.webp'
@@ -121,15 +120,15 @@ function Body({ reproduciendo, toggleMusica }) {
         <div className='BodyContainer'>
             <Banner />
             <button id='silenceButton' className='Container_ControlMusica' onClick={toggleMusica}>
-                {reproduciendo ? <img className='ControlMusica' src={silencio} alt="Silencio"/> : <img className='ControlMusica' src={volumen} alt="Volumen"/>}
+                {reproduciendo ? <img className='ControlMusica' src={pausa} alt="Play"/> : <img className='ControlMusica' src={play} alt="Pausa"/>}
             </button>
-            <section id='NuestraHistoria' className='HistoryContainer' data-aos="fade-up">
-                <picture className='HistoryContainer_anillos' data-aos="zoom-in">
+            <section id='NuestraHistoria' className='HistoryContainer' data-aos="zoom-in">
+                <picture className='HistoryContainer_anillos'>
                     <img src={anillos} alt="flores presentación" />
                 </picture>
-                <h2 data-aos="zoom-in">Nuestra Historia</h2>
-                <p data-aos="zoom-in">El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de cinco años juntos, hemos decidido dar el siguiente paso.</p>
-                <p data-aos="zoom-in">Te invitamos a ser parte de este momento único en nuestras vidas.</p>
+                <h2>Nuestra Historia</h2>
+                <p>El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de cinco años juntos, hemos decidido dar el siguiente paso.</p>
+                <p>Te invitamos a ser parte de este momento único en nuestras vidas.</p>
                 <h3>Queremos que este momento tan especial lo disfrutes tanto como nosotros, por eso hemos decidido que el evento sea solo para adultos.</h3>
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
@@ -147,10 +146,11 @@ function Body({ reproduciendo, toggleMusica }) {
                         <img src={imgBodyCircle} alt="img location" />
                     </picture>
                 </div>
-                <div className='LocationContainer_text'>
-                    <section className='LocationContainer_text_info' data-aos="zoom-in-up">
+                <div className='LocationContainer_text' data-aos="zoom-in-up">
+                    <section className='LocationContainer_text_info'>
                         <div>
-                            <h3>Araceli Zuleima Reyes Salgado &nbsp; & &nbsp; Mario Alan Albarran Guerrero</h3>
+                            <h3 className='LocationContainer_text_info_Web'>Araceli Zuleima Reyes Salgado &nbsp; & &nbsp; Mario Alan Albarran Guerrero</h3>
+                            <h3 className='LocationContainer_text_info_Mob'>Araceli &nbsp; & &nbsp; Mario Alan</h3>
                         </div>
                         <div className='LocationContainer_text_info_padres'>
                             <section>
@@ -170,8 +170,8 @@ function Body({ reproduciendo, toggleMusica }) {
                         </div>
                         <h2>Con la bendición de Dios y nuestros Padres</h2>
                     </section>
-                    <h3 data-aos="zoom-in-up"><b>Padrinos de Velación:</b></h3>
-                    <h3 data-aos="zoom-in-up">Nadia Albarran Palacios & Rafael Fuerte Carbajal</h3>
+                    <h3><b>Padrinos de Velación:</b></h3>
+                    <h3>Nadia Albarran Palacios & Rafael Fuerte Carbajal</h3>
                 </div>
             </section>
             <section className='GalleryContainer'>
@@ -189,7 +189,6 @@ function Body({ reproduciendo, toggleMusica }) {
                         <Button to="/itinerario">Ver detalles</Button>
                     </div>
                     <picture className='GalleryContainer_imgs'>
-                        {/* <img src={imgBody2_8} alt="img sobre otra" /> */}
                         <RollingGallery autoplay={true} pauseOnHover={true} />
                     </picture>
                 </div>
@@ -197,9 +196,9 @@ function Body({ reproduciendo, toggleMusica }) {
                     <img src={flowers90} alt="flores inclinadas" />
                 </picture>
             </section>
-            <section className='GiftTableContainer'>
-                <h2 data-aos="zoom-in">Tu presencia será el mejor regalo</h2>
-                <div className='GiftTableContainer_grid' data-aos="zoom-in">
+            <section className='GiftTableContainer' data-aos="zoom-in">
+                <h2>Tu presencia será el mejor regalo. Aún así, si te nace contribuir a nuestro nuevo capítulo, aquí está nuestra mesa de regalos</h2>
+                <div className='GiftTableContainer_grid'>
                     <div className='GiftTableContainer_gridItem'>
                         <picture>
                             <img src={imgBody9} alt="img bg" />
@@ -228,7 +227,7 @@ function Body({ reproduciendo, toggleMusica }) {
                         </div>
                     </div>
                 </div>
-                <a className="BtnExternoGlobal" data-aos="zoom-in" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51711361" target='_blank'>Ver mesa de regalos</a>
+                <a className="BtnExternoGlobal" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51711361" target='_blank'>Ver mesa de regalos</a>
             </section>
             <section className='DressCodeContainer' >
                 <h2 data-aos="fade-up">Código de Vestimenta</h2>
