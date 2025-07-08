@@ -22,17 +22,6 @@ import history9 from '../assets/historia_9.jpeg'
 import history10 from '../assets/historia_10.jpeg'
 import history11 from '../assets/historia_11.jpeg'
 import history12 from '../assets/historia_12.jpeg'
-import history13 from '../assets/historia_13.jpeg'
-import history15 from '../assets/historia_15.jpeg'
-import history16 from '../assets/historia_16.jpeg'
-import history17 from '../assets/historia_17.jpeg'
-import history18 from '../assets/historia_18.jpeg'
-import history19 from '../assets/historia_19.jpeg'
-import history20 from '../assets/historia_20.jpeg'
-import history21 from '../assets/historia_21.jpeg'
-import history22 from '../assets/historia_22.jpeg'
-import history23 from '../assets/historia_23.jpeg'
-import history24 from '../assets/historia_24.jpeg'
 
 function debounce(func, wait) {
   let timeout
@@ -362,17 +351,6 @@ class App {
       { image: history10, text: '' },
       { image: history11, text: '' },
       { image: history12, text: '' },
-      { image: history13, text: '' },
-      { image: history15, text: '' },
-      { image: history16, text: '' },
-      { image: history17, text: '' },
-      { image: history18, text: '' },
-      { image: history19, text: '' },
-      { image: history20, text: '' },
-      { image: history21, text: '' },
-      { image: history22, text: '' },
-      { image: history23, text: '' },
-      { image: history24, text: '' }
     ]
     const galleryItems = items && items.length ? items : defaultItems
     this.mediasImages = galleryItems.concat(galleryItems)

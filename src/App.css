@@ -197,6 +197,27 @@
 }
   }
 }
+.HistoryContainer_sectionQR {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  & p {
+    width: 20%;
+    font-size: 1.7vw;
+    line-height: 2.2vw;
+  }
+  & .HistoryContainer_qrDot {
+    width: 25%;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
 .HistoryContainer_anillos {
   width: 20%;
   margin: 1% auto;
@@ -411,24 +432,27 @@
   align-items: center;
   margin: 8% auto;
   text-align: center;
-  gap: 3rem;
+  gap: 1.5rem;
   & h2 {
     font-family: 'Great Vibes', cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
   & .GiftTableContainer_grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
     width: 80%;
     margin: 0 auto;
     & .GiftTableContainer_gridItem {
       position: relative;
+      display: flex;
+      gap: 2rem;
+      & section {
+        width: 50%;
+      }
       & picture {
-        width: 100%;
-        line-height: 0;
-        margin: 0 auto;
         & img {
           width: 100%;
           height: 100%;
@@ -436,33 +460,9 @@
         }
       }
       & div {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: grid;
-        place-items: center;
-        background-color: #F8F9FA;
-        width: 50%;
-        aspect-ratio: 1 / 1;
-        transform: translate(-100%, 50%);
-        -webkit-transform: translate(-100%, 50%);
-        -moz-transform: translate(-100%, 50%);
-        -ms-transform: translate(-100%, 50%);
-        -o-transform: translate(-100%, 50%);
-        border-radius: 0.5rem;
-        -webkit-border-radius: 0.5rem;
-        -moz-border-radius: 0.5rem;
-        -ms-border-radius: 0.5rem;
-        -o-border-radius: 0.5rem;
-        & h3 {
-          font-family: 'Great Vibes', cursive;
-          text-align: center;
-          font-size: 2.5vw;
-          line-height: 3vw;
-        }
-        & svg {
-          width: auto;
-          height: 80%;
+        & img {
+          width: 100%;
+          height: 100%;
           object-fit: contain;
         }
       }
@@ -565,6 +565,9 @@
       -moz-transform: translate(-32%, -50%);
       -ms-transform: translate(-32%, -50%);
       -o-transform: translate(-32%, -50%);
+      border-top-left-radius: 3rem;
+      border-bottom-right-radius: 3rem;
+
       & .DressCodeContainer_position_flowers {
         width: 50%;
         margin: 2% auto;
@@ -626,8 +629,8 @@
   background-image: url(./assets/boda_7.webp);
 }
 .item4 {
-  grid-row: span 3;
-  background-image: url(./assets/boda_14.webp);
+  grid-row: span 4;
+  background-image: url(./assets/boda_5.webp);
 }
 .item5 {
   grid-row: span 2;
@@ -636,6 +639,18 @@
 .item6 {
   grid-row: span 2;
   background-image: url(./assets/boda_17.webp);
+}
+.item7 {
+  grid-row: span 3;
+  background-image: url(./assets/boda_2.webp);
+}
+.item8 {
+  grid-row: span 3;
+  background-image: url(./assets/boda_4.webp);
+}
+.item9 {
+  grid-row: span 2;
+  background-image: url(./assets/boda_14.webp);
 }
 .EventGridContainer_img {
   width: 25%;
@@ -655,6 +670,22 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  & .FormContainer_container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  & picture {
+    width: 20%;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  & section {
+    width: 65%;
+  }
   & h2 {
     font-family: 'Great Vibes', cursive;
     font-size: 3.5vw;
@@ -862,7 +893,7 @@
       line-height: 1.7rem;
     }
     & .HistoryContainer_img {
-      width: 60%;
+      width: 80%;
       margin: 1rem auto;
     }
   }
@@ -874,6 +905,7 @@
     & .GiftTableContainer_grid {
       width: 100%;
       & .GiftTableContainer_gridItem {
+        width: 65%;
         & div {
           & h3 {
             font-size: 1.8rem;
@@ -963,6 +995,15 @@
   .PrincipalTitle {
     font-size: 3rem;
     line-height: 3.5rem;
+  }
+  .HistoryContainer_sectionQR {
+    flex-direction: column;
+    & p {
+      width: 100%;
+    }
+    & .HistoryContainer_qrDot {
+      width: 50%;
+    }
   }
   .ContenidoBanner {
     top: 56%;
@@ -1115,7 +1156,7 @@
         }
       }
       & .GalleryContainer_imgs {
-        width: 60%;
+        width: 90%;
         margin: 0 auto;
       }
     }
@@ -1213,6 +1254,16 @@
     display: none;
   }
   .FormContainer {
+    & .FormContainer_container {
+      flex-direction: column-reverse;
+      gap: 1.5rem;
+    }
+    & section {
+      width: 90%;
+    }
+    & picture {
+      width: 50%;
+    }
     & h2 {
       font-size: 2.5rem;
       line-height: 3rem;
@@ -1250,6 +1301,16 @@
     & h4 {
       font-size: 1.1rem;
       line-height: 1.6rem;
+    }
+  }
+  .HistoryContainer_sectionQR {
+    & .HistoryContainer_qrDot {
+      width: 70%;
+    }
+  }
+  .FormContainer {
+    & picture {
+      width: 70%;
     }
   }
   .CountdownContainer {

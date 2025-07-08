@@ -2,31 +2,33 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useAnimation, useTransform } from "framer-motion";
 import "../styles/RollingGallery.css";
 
-import history9 from '../assets/historia_9.jpeg'
-import history10 from '../assets/historia_10.jpeg'
-import history11 from '../assets/historia_11.jpeg'
+import history12 from '../assets/historia_12.jpeg'
 import history13 from '../assets/historia_13.jpeg'
 import history15 from '../assets/historia_15.jpeg'
 import history16 from '../assets/historia_16.jpeg'
 import history17 from '../assets/historia_17.jpeg'
 import history18 from '../assets/historia_18.jpeg'
+import history19 from '../assets/historia_19.jpeg'
 import history20 from '../assets/historia_20.jpeg'
 import history21 from '../assets/historia_21.jpeg'
 import history22 from '../assets/historia_22.jpeg'
+import history23 from '../assets/historia_23.jpeg'
+import history24 from '../assets/historia_24.jpeg'
 
 
 const IMGS = [
-    history9,
-    history10,
-    history11,
+    history12,
     history13,
     history15,
     history16,
     history17,
     history18,
+    history19,
     history20,
     history21,
     history22,
+    history23,
+    history24,
 ];
 
 const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] }) => {
