@@ -28,11 +28,10 @@ function Body({ reproduciendo, toggleMusica }) {
         apellidos: '',
         telefono: '',
         correo: '',
-        invitados: '',
+        invitados: '1',
         dudas: ''
     });
 
-    // Estado para manejar la carga
     const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (e) => {
@@ -40,80 +39,66 @@ function Body({ reproduciendo, toggleMusica }) {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    // Función de validación
     const validateForm = () => {
         const required = ['nombre', 'apellidos', 'telefono', 'correo', 'invitados'];
-        return required.every(field => formData[field].trim() !== '');
+        const invitadosCount = Number(formData.invitados || 1);
+
+        const invitadosValidos = [...Array(invitadosCount - 1)].every((_, i) => {
+        const key = `invitado_${i + 1}`;
+        return formData[key] && formData[key].trim() !== '';
+    });
+
+    return required.every(field => formData[field].trim() !== '') && invitadosValidos;
+    
     };
 
-    const sendToGoogleSheets = () => {
-        // Validar antes de enviar
+    const sendToGoogleSheets = async () => {
         if (!validateForm()) {
             alert("Por favor completa todos los campos obligatorios");
             return;
         }
 
         setIsLoading(true);
-        
-        // Método 1: Usar GET con parámetros URL (más confiable para CORS)
-        const params = new URLSearchParams(formData);
-        const url = `https://script.google.com/macros/s/AKfycbwR8bvOtfYItXpMJOsFcnv7m9U6DOma2ycFex1HvvD6iCS35UaDFSD0Gjbr3NfHGTMz/exec?${params}`;
-        
-        fetch(url, { 
-            method: "GET",
-            mode: 'no-cors' // Esto evita el preflight CORS
-        })
-        .then(() => {
-            // Con no-cors no podemos leer la respuesta, asumimos éxito si no hay error
-            console.log("Registro enviado");
-            alert("Tus datos fueron registrados. ¡Gracias!");
+
+        const invitadosExtra = Object.fromEntries(
+            Object.entries(formData).filter(([key]) => key.startsWith('invitado_'))
+        );
+
+        const dataToSend = {
+            nombre: formData.nombre,
+            apellidos: formData.apellidos,
+            telefono: formData.telefono,
+            correo: formData.correo,
+            invitados: formData.invitados,
+            dudas: formData.dudas,
+            ...invitadosExtra
+        };
+
+        try {
+            await fetch(`https://script.google.com/macros/s/AKfycbwR8bvOtfYItXpMJOsFcnv7m9U6DOma2ycFex1HvvD6iCS35UaDFSD0Gjbr3NfHGTMz/exec`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dataToSend),
+            });
+
+            alert("Datos enviados correctamente");
+
             setFormData({
                 nombre: '',
                 apellidos: '',
                 telefono: '',
                 correo: '',
-                invitados: '',
+                invitados: '1',
                 dudas: ''
             });
-        })
-        .catch(err => {
-            console.error("Error al registrar:", err);
-            // Fallback: Intentar con POST FormData
-            sendWithFormData();
-        })
-        .finally(() => {
+
+        } catch (error) {
+            alert("Error al enviar a Google Sheets");
+            console.log(error);
+            ;
+        } finally {
             setIsLoading(false);
-        });
-    };
-
-    // Método alternativo con FormData
-    const sendWithFormData = () => {
-        const formDataToSend = new FormData();
-        Object.keys(formData).forEach(key => {
-            formDataToSend.append(key, formData[key]);
-        });
-
-        fetch("https://script.google.com/macros/s/AKfycbwR8bvOtfYItXpMJOsFcnv7m9U6DOma2ycFex1HvvD6iCS35UaDFSD0Gjbr3NfHGTMz/exec", {
-            method: "POST",
-            body: formDataToSend,
-            mode: 'no-cors'
-        })
-        .then(() => {
-            console.log("Registro enviado con FormData");
-            alert("Tus datos fueron registrados. ¡Gracias!");
-            setFormData({
-                nombre: '',
-                apellidos: '',
-                telefono: '',
-                correo: '',
-                invitados: '',
-                dudas: ''
-            });
-        })
-        .catch(err => {
-            console.error("Error al registrar:", err);
-            alert("Hubo un problema al registrar tus datos. Por favor intenta de nuevo.");
-        });
+        }
     };
 
     return (
@@ -219,23 +204,6 @@ function Body({ reproduciendo, toggleMusica }) {
                         </section>
                     </div>
                 </div>
-                {/* <div className='GiftTableContainer_grid'>
-                    <div className='GiftTableContainer_gridItem'>
-                        <picture>
-                            <img src={imgBody9} alt="img bg" />
-                        </picture>
-                    </div>
-                    <div className='GiftTableContainer_gridItem'>
-                         <picture>
-                            <img src={imgBody10} alt="img bg" />
-                        </picture>
-                    </div>
-                    <div className='GiftTableContainer_gridItem'>
-                         <picture>
-                            <img src={imgBody11} alt="img bg" />
-                        </picture>
-                    </div>
-                </div> */}
             </section>
             <section className='DressCodeContainer' >
                 <h2 data-aos="fade-up">Código de Vestimenta</h2>
@@ -281,7 +249,6 @@ function Body({ reproduciendo, toggleMusica }) {
                         <Stepper
                             initialStep={1}
                             onStepChange={(step) => {
-                                console.log(step);
                                 AOS.refresh();
                             }}
                             onFinalStepCompleted={sendToGoogleSheets}
@@ -334,6 +301,21 @@ function Body({ reproduciendo, toggleMusica }) {
                                     onChange={handleChange}
                                     disabled={isLoading}
                                 />
+                                {Number(formData.invitados) > 1 && (
+                                    <>
+                                        <p><b>Nombres de tus invitados:</b></p>
+                                        {[...Array(Number(formData.invitados) - 1)].map((_, i) => (
+                                        <input
+                                            key={i}
+                                            placeholder={`Nombre del invitado ${i + 1}`}
+                                            name={`invitado_${i + 1}`}
+                                            value={formData[`invitado_${i + 1}`] || ""}
+                                            onChange={handleChange}
+                                            disabled={isLoading}
+                                        />
+                                        ))}
+                                    </>
+                                )}
                             </Step>
                             <Step>
                                 <h3>Gracias por registrarte</h3>
