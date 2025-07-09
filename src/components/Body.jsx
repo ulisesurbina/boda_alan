@@ -14,9 +14,6 @@ import imgBody1 from '../assets/boda_12reflec.webp'
 import flowersCircle from '../assets/flowersCircle.png'
 import imgBodyCircle from '../assets/boda_6.webp'
 import flowers90 from '../assets/flowers90.png'
-import imgBody9 from '../assets/boda_2.webp'
-import imgBody10 from '../assets/boda_4.webp'
-import imgBody11 from '../assets/boda_5.webp'
 import imgBody12 from '../assets/boda_15.webp'
 import flower45 from '../assets/flower45.png'
 import anillos from '../assets/anillosNew.webp'
@@ -26,7 +23,6 @@ import regaloGif from '../assets/regalo.gif'
 import regaloGif2 from '../assets/regalo2.gif'
 
 function Body({ reproduciendo, toggleMusica }) {
-    // Estado del formulario que faltaba
     const [formData, setFormData] = useState({
         nombre: '',
         apellidos: '',
