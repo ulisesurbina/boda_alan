@@ -1305,7 +1305,7 @@
   }
   .HistoryContainer_sectionQR {
     & .HistoryContainer_qrDot {
-      width: 95%;
+      width: 80%;
     }
   }
   .FormContainer {
