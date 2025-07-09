@@ -75,7 +75,7 @@ function Body({ reproduciendo, toggleMusica }) {
         };
 
         try {
-            await fetch(`https://script.google.com/macros/s/AKfycbwR8bvOtfYItXpMJOsFcnv7m9U6DOma2ycFex1HvvD6iCS35UaDFSD0Gjbr3NfHGTMz/exec`, {
+            await fetch(`https://script.google.com/macros/s/AKfycbxNAqvEi1RtJ03gn3kpo1bdx5O9QAZDkzRziob5j0Ozu5udqcELfrd14ezM3pMUMRnW/exec`, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
@@ -94,9 +94,8 @@ function Body({ reproduciendo, toggleMusica }) {
             });
 
         } catch (error) {
-            alert("Error al enviar a Google Sheets");
-            console.log(error);
-            ;
+            console.error("Error al enviar datos:", error);
+            alert("Hubo un problema al registrar tus datos. Intenta más tarde.");
         } finally {
             setIsLoading(false);
         }
