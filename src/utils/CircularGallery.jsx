@@ -318,7 +318,7 @@ class App {
     this.addEventListeners()
   }
   createRenderer() {
-    this.renderer = new Renderer({ alpha: true })
+    this.renderer = new Renderer({ alpha: true, dpr: Math.min(window.devicePixelRatio, 2) })
     this.gl = this.renderer.gl
     this.gl.clearColor(0, 0, 0, 0)
     this.container.appendChild(this.gl.canvas)

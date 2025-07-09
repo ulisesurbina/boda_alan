@@ -31,39 +31,29 @@ function Body({ reproduciendo, toggleMusica }) {
         invitados: '1',
         dudas: ''
     });
-
     const [isLoading, setIsLoading] = useState(false);
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
-
     const validateForm = () => {
         const required = ['nombre', 'apellidos', 'telefono', 'correo', 'invitados'];
         const invitadosCount = Number(formData.invitados || 1);
-
         const invitadosValidos = [...Array(invitadosCount - 1)].every((_, i) => {
         const key = `invitado_${i + 1}`;
         return formData[key] && formData[key].trim() !== '';
     });
-
     return required.every(field => formData[field].trim() !== '') && invitadosValidos;
-    
     };
-
     const sendToGoogleSheets = async () => {
         if (!validateForm()) {
             alert("Por favor completa todos los campos obligatorios");
             return;
         }
-
         setIsLoading(true);
-
         const invitadosExtra = Object.fromEntries(
             Object.entries(formData).filter(([key]) => key.startsWith('invitado_'))
         );
-
         const dataToSend = {
             nombre: formData.nombre,
             apellidos: formData.apellidos,
@@ -73,7 +63,6 @@ function Body({ reproduciendo, toggleMusica }) {
             dudas: formData.dudas,
             ...invitadosExtra
         };
-
         try {
             await fetch(`https://script.google.com/macros/s/AKfycbxNAqvEi1RtJ03gn3kpo1bdx5O9QAZDkzRziob5j0Ozu5udqcELfrd14ezM3pMUMRnW/exec`, {
             method: 'POST',
@@ -81,9 +70,7 @@ function Body({ reproduciendo, toggleMusica }) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataToSend),
             });
-
             alert("Datos enviados correctamente");
-
             setFormData({
                 nombre: '',
                 apellidos: '',
@@ -92,7 +79,6 @@ function Body({ reproduciendo, toggleMusica }) {
                 invitados: '1',
                 dudas: ''
             });
-
         } catch (error) {
             console.error("Error al enviar datos:", error);
             alert("Hubo un problema al registrar tus datos. Intenta más tarde.");
