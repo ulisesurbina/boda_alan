@@ -77,6 +77,7 @@ function Body({ reproduciendo, toggleMusica }) {
         try {
             await fetch(`https://script.google.com/macros/s/AKfycbwR8bvOtfYItXpMJOsFcnv7m9U6DOma2ycFex1HvvD6iCS35UaDFSD0Gjbr3NfHGTMz/exec`, {
             method: 'POST',
+            mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dataToSend),
             });
