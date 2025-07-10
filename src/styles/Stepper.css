@@ -128,10 +128,10 @@
   position: relative;
   cursor: pointer;
   outline: none;
+  pointer-events: none;
 }
 
-.step-indicator-inner {
-  display: flex;
+.step-indicator-inner {  display: flex;
   height: 3vw;
   width: 3vw;
   align-items: center;

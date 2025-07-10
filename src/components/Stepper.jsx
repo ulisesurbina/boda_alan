@@ -8,6 +8,7 @@ export default function Stepper({
   initialStep = 1,
   onStepChange = () => { },
   onFinalStepCompleted = () => { },
+  onBeforeStepChange = () => true,
   stepCircleContainerClassName = "",
   stepContainerClassName = "",
   contentClassName = "",
@@ -45,14 +46,33 @@ export default function Stepper({
 
   const handleNext = () => {
     if (!isLastStep) {
-      setDirection(1);
-      updateStep(currentStep + 1);
+      const canProceed = onBeforeStepChange(currentStep, currentStep + 1);
+      if (canProceed) {
+        setDirection(1);
+        updateStep(currentStep + 1);
+      }
     }
   };
 
   const handleComplete = () => {
-    setDirection(1);
-    updateStep(totalSteps + 1);
+    const canProceed = onBeforeStepChange(currentStep, totalSteps + 1);
+    if (canProceed) {
+      setDirection(1);
+      updateStep(totalSteps + 1);
+    }
+  };
+
+  const handleStepClick = (targetStep) => {
+    if (targetStep < currentStep) {
+      setDirection(-1);
+      updateStep(targetStep);
+    } else if (targetStep > currentStep) {
+      const canProceed = onBeforeStepChange(currentStep, targetStep);
+      if (canProceed) {
+        setDirection(1);
+        updateStep(targetStep);
+      }
+    }
   };
 
   return (
@@ -68,20 +88,14 @@ export default function Stepper({
                   renderStepIndicator({
                     step: stepNumber,
                     currentStep,
-                    onStepClick: (clicked) => {
-                      setDirection(clicked > currentStep ? 1 : -1);
-                      updateStep(clicked);
-                    },
+                    onStepClick: handleStepClick,
                   })
                 ) : (
                   <StepIndicator
                     step={stepNumber}
                     disableStepIndicators={disableStepIndicators}
                     currentStep={currentStep}
-                    onClickStep={(clicked) => {
-                      setDirection(clicked > currentStep ? 1 : -1);
-                      updateStep(clicked);
-                    }}
+                    onClickStep={handleStepClick}
                   />
                 )}
                 {isNotLastStep && (

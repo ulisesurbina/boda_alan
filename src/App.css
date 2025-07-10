@@ -1276,6 +1276,9 @@
     & h2 {
       font-size: 2.5rem;
       line-height: 3rem;
+      width: 90%;
+      text-align: center;
+      margin: 0 auto;
     }
     & .EventGridContainer_imgGrid {
       grid-template-columns: repeat(2, 1fr);

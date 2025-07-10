@@ -32,24 +32,65 @@ function Body({ reproduciendo, toggleMusica }) {
         dudas: ''
     });
     const [isLoading, setIsLoading] = useState(false);
+    const [currentStep, setCurrentStep] = useState(1);
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
+
+    const validateStep = (step) => {
+        switch (step) {
+            case 1:
+                return true;
+            case 2:
+                const required = ['nombre', 'apellidos', 'telefono', 'correo'];
+                const basicFieldsValid = required.every(field => 
+                    formData[field] && formData[field].toString().trim() !== ''
+                );
+                
+                if (!basicFieldsValid) {
+                    alert("Por favor completa todos los campos obligatorios: nombre, apellidos, teléfono, correo y nombre de invitados (Si aplica)");
+                    return false;
+                }
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(formData.correo)) {
+                    alert("Por favor ingresa un correo electrónico válido");
+                    return false;
+                }
+
+                const phoneRegex = /^[0-9]{10,}$/;
+                if (!phoneRegex.test(formData.telefono.replace(/\s/g, ''))) {
+                    alert("Por favor ingresa un número de teléfono válido (mínimo 10 dígitos)");
+                    return false;
+                }
+            
+                return true;
+            case 3:
+                return true;
+            default:
+                return true;
+        }
+    };
+
     const validateForm = () => {
-        const required = ['nombre', 'apellidos', 'telefono', 'correo', 'invitados'];
+        const required = ['nombre', 'apellidos', 'telefono', 'correo'];
         const invitadosCount = Number(formData.invitados || 1);
         const invitadosValidos = [...Array(invitadosCount - 1)].every((_, i) => {
-        const key = `invitado_${i + 1}`;
-        return formData[key] && formData[key].trim() !== '';
-    });
-    return required.every(field => formData[field].trim() !== '') && invitadosValidos;
+            const key = `invitado_${i + 1}`;
+            return formData[key] && formData[key].trim() !== '';
+        });
+        return required.every(field => formData[field].trim() !== '') && invitadosValidos;
     };
+
     const sendToGoogleSheets = async () => {
         if (!validateForm()) {
             alert("Por favor completa todos los campos obligatorios");
+            setCurrentStep(2);
             return;
         }
+        
         setIsLoading(true);
         const invitadosExtra = Object.fromEntries(
             Object.entries(formData).filter(([key]) => key.startsWith('invitado_'))
@@ -63,12 +104,13 @@ function Body({ reproduciendo, toggleMusica }) {
             dudas: formData.dudas,
             ...invitadosExtra
         };
+        
         try {
             await fetch(`https://script.google.com/macros/s/AKfycbxNAqvEi1RtJ03gn3kpo1bdx5O9QAZDkzRziob5j0Ozu5udqcELfrd14ezM3pMUMRnW/exec`, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(dataToSend),
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dataToSend),
             });
             alert("Datos enviados correctamente");
             setFormData({
@@ -79,12 +121,20 @@ function Body({ reproduciendo, toggleMusica }) {
                 invitados: '1',
                 dudas: ''
             });
+            setCurrentStep(1);
         } catch (error) {
             console.error("Error al enviar datos:", error);
             alert("Hubo un problema al registrar tus datos. Intenta más tarde.");
         } finally {
             setIsLoading(false);
         }
+    };
+
+    const handleBeforeStepChange = (currentStep, nextStep) => {
+        if (nextStep > currentStep) {
+            return validateStep(currentStep);
+        }
+        return true;
     };
 
     return (
@@ -101,12 +151,6 @@ function Body({ reproduciendo, toggleMusica }) {
                 <p>El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de cinco años juntos, hemos decidido dar el siguiente paso.</p>
                 <p>Te invitamos a ser parte de este momento único en nuestras vidas.</p>
                 <h3>Queremos que este momento tan especial lo disfrutes tanto como nosotros, por eso hemos decidido que el evento sea solo para adultos.</h3>
-                {/* <div className='HistoryContainer_sectionQR'>
-                    <p>Ayudanos compartiendo tu recuerdo de la boda</p>
-                    <picture className='HistoryContainer_qrDot'>
-                        <img src={qr_dot} alt="qr dot memories" />
-                    </picture>
-                </div> */}
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
                 </picture>
@@ -126,8 +170,8 @@ function Body({ reproduciendo, toggleMusica }) {
                 <div className='LocationContainer_text' data-aos="zoom-in-up">
                     <section className='LocationContainer_text_info'>
                         <div>
-                            <h3 className='LocationContainer_text_info_Web'>Araceli Zuleima Reyes Salgado &nbsp; & &nbsp; Mario Alan Albarran Guerrero</h3>
-                            <h3 className='LocationContainer_text_info_Mob'>Araceli &nbsp; & &nbsp; Mario Alan</h3>
+                            <h3 className='LocationContainer_text_info_Web'>Araceli Zuleima Reyes Salgado & Mario Alan Albarran Guerrero</h3>
+                            <h3 className='LocationContainer_text_info_Mob'>Araceli & Mario Alan</h3>
                         </div>
                         <div className='LocationContainer_text_info_padres'>
                             <section>
@@ -204,7 +248,7 @@ function Body({ reproduciendo, toggleMusica }) {
                         </picture>
                         <p>Formal Elegante</p>
                         <p>Favor de evitar colores:</p>
-                        <h3>Blanco &nbsp; & &nbsp; Rojo </h3>
+                        <h3>Blanco & Rojo </h3>
                     </section>
                 </div>
             </section>
@@ -233,45 +277,45 @@ function Body({ reproduciendo, toggleMusica }) {
                     </picture>
                     <section>
                         <Stepper
+                            activeStep={currentStep}
                             initialStep={1}
-                            onStepChange={(step) => {
-                                AOS.refresh();
-                            }}
+                            onStepChange={setCurrentStep}
+                            onBeforeStepChange={handleBeforeStepChange}
                             onFinalStepCompleted={sendToGoogleSheets}
                             backButtonText="Anterior"
                             nextButtonText="Siguiente"
                             >
                             <Step>
-                                <h3><b>Agradecemos tu interes</b></h3>
+                                <h3><b>Agradecemos tu interés</b></h3>
                                 <p>Sigue los siguientes pasos para tu registro</p>
                             </Step>
                             <Step>
                                 <p><b>El evento es privado, no se puede acceder sin registro ni invitación</b></p>
-                                <p>* Los invitados serán autorizados por los novios</p>
+                                <p>** Los invitados serán autorizados por los novios</p>
                                 <p><b>Ingresa los datos solicitados</b></p>
                                 <input 
-                                    placeholder="Nombre"  
+                                    placeholder="Nombre*"  
                                     name="nombre" 
                                     value={formData.nombre} 
                                     onChange={handleChange}
                                     disabled={isLoading}
                                 />
                                 <input 
-                                    placeholder="Apellidos" 
+                                    placeholder="Apellidos*" 
                                     name="apellidos" 
                                     value={formData.apellidos} 
                                     onChange={handleChange}
                                     disabled={isLoading}
                                 />
                                 <input 
-                                    placeholder="Número de teléfono"  
+                                    placeholder="Número de teléfono*"  
                                     name="telefono" 
                                     value={formData.telefono} 
                                     onChange={handleChange}
                                     disabled={isLoading}
                                 />
                                 <input 
-                                    placeholder="Correo" 
+                                    placeholder="Correo electrónico*" 
                                     name="correo" 
                                     type="email"
                                     value={formData.correo} 
@@ -293,7 +337,7 @@ function Body({ reproduciendo, toggleMusica }) {
                                         {[...Array(Number(formData.invitados) - 1)].map((_, i) => (
                                         <input
                                             key={i}
-                                            placeholder={`Nombre del invitado ${i + 1}`}
+                                            placeholder={`Nombre del invitado ${i + 1}*`}
                                             name={`invitado_${i + 1}`}
                                             value={formData[`invitado_${i + 1}`] || ""}
                                             onChange={handleChange}
@@ -302,16 +346,18 @@ function Body({ reproduciendo, toggleMusica }) {
                                         ))}
                                     </>
                                 )}
+                                <p>* Campos obligatorios</p>
                             </Step>
                             <Step>
                                 <h3>Gracias por registrarte</h3>
                                 <p>¿Tienes alguna duda respecto al evento?</p>
-                                <input 
-                                    placeholder="Escribe tus dudas"
+                                <input
+                                    placeholder="Dinos tus dudas"
                                     name="dudas" 
                                     value={formData.dudas} 
                                     onChange={handleChange}
                                     disabled={isLoading}
+                                    rows="4"
                                 />
                                 <p>Espera próximas noticias en tu Correo o Whatsapp</p>
                                 {isLoading && <p>Enviando datos...</p>}
