@@ -65,7 +65,20 @@ function Body({ reproduciendo, toggleMusica }) {
                     alert("Por favor ingresa un número de teléfono válido (mínimo 10 dígitos)");
                     return false;
                 }
-            
+
+                const invitadosCount = Number(formData.invitados || 0);
+                if (invitadosCount >= 1) {
+                    const invitadosValidos = [...Array(invitadosCount)].every((_, i) => {
+                        const key = `invitado_${i + 1}`;
+                        return formData[key] && formData[key].trim() !== '';
+                    });
+                    
+                    if (!invitadosValidos) {
+                        alert("Por favor completa los nombres de todos tus invitados");
+                        return false;
+                    }
+                }
+        
                 return true;
             case 3:
                 return true;
@@ -76,12 +89,15 @@ function Body({ reproduciendo, toggleMusica }) {
 
     const validateForm = () => {
         const required = ['nombre', 'apellidos', 'telefono', 'correo'];
-        const invitadosCount = Number(formData.invitados || 1);
-        const invitadosValidos = [...Array(invitadosCount - 1)].every((_, i) => {
-            const key = `invitado_${i + 1}`;
-            return formData[key] && formData[key].trim() !== '';
-        });
-        return required.every(field => formData[field].trim() !== '') && invitadosValidos;
+        const basicFieldsValid = required.every(field => formData[field].trim() !== '');
+        const invitadosCount = Number(formData.invitados || 0);
+        const invitadosValidos = invitadosCount > 1 ? 
+            [...Array(invitadosCount - 1)].every((_, i) => {
+                const key = `invitado_${i + 1}`;
+                return formData[key] && formData[key].trim() !== '';
+            }) : true;
+            
+        return basicFieldsValid && invitadosValidos;
     };
 
     const sendToGoogleSheets = async () => {
@@ -323,18 +339,18 @@ function Body({ reproduciendo, toggleMusica }) {
                                     disabled={isLoading}
                                 />
                                 <input 
-                                    placeholder="No. invitados (Incluido tú)"  
+                                    placeholder="No. invitados"  
                                     name="invitados" 
                                     type="number"
-                                    min="1"
+                                    min="0"
                                     value={formData.invitados} 
                                     onChange={handleChange}
                                     disabled={isLoading}
                                 />
-                                {Number(formData.invitados) > 1 && (
+                                {Number(formData.invitados) >= 1 && (
                                     <>
                                         <p><b>Nombres de tus invitados:</b></p>
-                                        {[...Array(Number(formData.invitados) - 1)].map((_, i) => (
+                                        {[...Array(Number(formData.invitados))].map((_, i) => (
                                         <input
                                             key={i}
                                             placeholder={`Nombre del invitado ${i + 1}*`}
