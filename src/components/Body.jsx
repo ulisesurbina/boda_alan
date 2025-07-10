@@ -110,7 +110,7 @@ function Body({ reproduciendo, toggleMusica }) {
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
                 </picture>
-                <div style={{ height: 'auto', position: 'relative' }}>
+                <div className='ContainerCircularImg'>
                     <CircularGallery bend={-3} textColor="#4F7A92" borderRadius={0.05} scaleFactor={1.7}/>
                 </div>
             </section>

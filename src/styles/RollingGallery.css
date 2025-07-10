@@ -81,4 +81,7 @@
     height: 100px;
     width: 220px;
   }
+  .gallery-container {
+    height: auto;
+  }
 }
