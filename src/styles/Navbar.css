@@ -1,6 +1,5 @@
 .NavbarContainer {
-    /* font-family: 'Great Vibes', cursive; */
-    font-family: "Dancing Script", cursive;
+    font-family: 'Great Vibes', cursive;
     display: flex;
     align-items: center;
     justify-content: center;
