@@ -872,7 +872,7 @@
         }
       }
       & .GalleryContainer_imgs {
-        width: 50%;
+        width: 80%;
         margin: 0 auto;
       }
     }
@@ -1038,6 +1038,9 @@
     & .HistoryContainer_qrDot {
       width: 50%;
     }
+  }
+  .ContainerCircularImg {
+    padding: 0 6rem;
   }
   .ContenidoBanner {
     top: 56%;
@@ -1383,6 +1386,9 @@
   }
   .HistoryContainer_anillos {
     width: 80%;
+  }
+  .ContainerCircularImg {
+    padding: 0 2rem;
   }
   .DressCodeContainer {
     & .DressCodeContainer_position {

@@ -34,14 +34,13 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
   images = IMGS;
   const [isScreenSizeSm, setIsScreenSizeSm] = useState(window.innerWidth <= 640);
 
-  // Ajustar cylinderWidth basado en el tamaño de pantalla
   const getCylinderWidth = () => {
     if (window.innerWidth <= 480) {
-      return 1800; // Pantallas muy pequeñas
+      return 1800;
     } else if (window.innerWidth <= 768) {
-      return 2200; // Pantallas móviles medianas
+      return 2200;
     } else {
-      return 2000; // Pantallas grandes (valor original)
+      return 2000;
     }
   };
 

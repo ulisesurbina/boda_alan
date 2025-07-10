@@ -279,14 +279,13 @@ function Body({ reproduciendo, toggleMusica }) {
                 </picture>
             </section>
             <section id='FormAbsolute' className='FormContainer'>
-                <h2 data-aos="zoom-in-up">Confirma tu Asistencia</h2>
-                <div className='FormContainer_container' data-aos="zoom-in-up">
+                <h2>Confirma tu Asistencia</h2>
+                <div className='FormContainer_container'>
                     <picture>
                         <img src={qr_boda} alt="qr evento boda" />
                     </picture>
                     <section>
                         <Stepper
-                            activeStep={currentStep}
                             initialStep={1}
                             onStepChange={setCurrentStep}
                             onBeforeStepChange={handleBeforeStepChange}

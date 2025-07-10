@@ -52,7 +52,7 @@ function LandingItinerario() {
     <section className='ContainerItinerario'>
       <section className="wedding-schedule">
         <h2 className="wedding-title">Programa</h2>
-        <div className="event-list">
+        <div className="event-list" id='VenueMaps'>
           {events.map((event, index) => (
             <div className="event-card" key={index}>
               <h3 className="event-title">{event.title}</h3>
