@@ -15,7 +15,6 @@ import history22 from '../assets/historia_22.jpeg'
 import history23 from '../assets/historia_23.jpeg'
 import history24 from '../assets/historia_24.jpeg'
 
-
 const IMGS = [
     history12,
     history13,
@@ -35,7 +34,19 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
   images = IMGS;
   const [isScreenSizeSm, setIsScreenSizeSm] = useState(window.innerWidth <= 640);
 
-  const cylinderWidth = isScreenSizeSm ? 1100 : 2000;
+  // Ajustar cylinderWidth basado en el tamaño de pantalla
+  const getCylinderWidth = () => {
+    if (window.innerWidth <= 480) {
+      return 1800; // Pantallas muy pequeñas
+    } else if (window.innerWidth <= 768) {
+      return 2200; // Pantallas móviles medianas
+    } else {
+      return 2000; // Pantallas grandes (valor original)
+    }
+  };
+
+  const [cylinderWidth, setCylinderWidth] = useState(getCylinderWidth());
+  
   const faceCount = images.length;
   const faceWidth = (cylinderWidth / faceCount);
   const dragFactor = 0.05;
@@ -76,7 +87,11 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
 
   useEffect(() => {
     const handleResize = () => {
-      setIsScreenSizeSm(window.innerWidth <= 640);
+      const newIsScreenSizeSm = window.innerWidth <= 640;
+      const newCylinderWidth = getCylinderWidth();
+      
+      setIsScreenSizeSm(newIsScreenSizeSm);
+      setCylinderWidth(newCylinderWidth);
     };
 
     window.addEventListener("resize", handleResize);

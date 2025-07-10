@@ -48,24 +48,20 @@ function Body({ reproduciendo, toggleMusica }) {
                 const basicFieldsValid = required.every(field => 
                     formData[field] && formData[field].toString().trim() !== ''
                 );
-                
                 if (!basicFieldsValid) {
                     alert("Por favor completa todos los campos obligatorios: nombre, apellidos, teléfono, correo y nombre de invitados (Si aplica)");
                     return false;
                 }
-
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(formData.correo)) {
                     alert("Por favor ingresa un correo electrónico válido");
                     return false;
                 }
-
                 const phoneRegex = /^[0-9]{10,}$/;
                 if (!phoneRegex.test(formData.telefono.replace(/\s/g, ''))) {
                     alert("Por favor ingresa un número de teléfono válido (mínimo 10 dígitos)");
                     return false;
                 }
-
                 const invitadosCount = Number(formData.invitados || 0);
                 if (invitadosCount >= 1) {
                     const invitadosValidos = [...Array(invitadosCount)].every((_, i) => {
@@ -78,7 +74,6 @@ function Body({ reproduciendo, toggleMusica }) {
                         return false;
                     }
                 }
-        
                 return true;
             case 3:
                 return true;
@@ -96,7 +91,6 @@ function Body({ reproduciendo, toggleMusica }) {
                 const key = `invitado_${i + 1}`;
                 return formData[key] && formData[key].trim() !== '';
             }) : true;
-            
         return basicFieldsValid && invitadosValidos;
     };
 
@@ -106,7 +100,6 @@ function Body({ reproduciendo, toggleMusica }) {
             setCurrentStep(2);
             return;
         }
-        
         setIsLoading(true);
         const invitadosExtra = Object.fromEntries(
             Object.entries(formData).filter(([key]) => key.startsWith('invitado_'))
@@ -187,7 +180,7 @@ function Body({ reproduciendo, toggleMusica }) {
                     <section className='LocationContainer_text_info'>
                         <div>
                             <h3 className='LocationContainer_text_info_Web'>Araceli Zuleima Reyes Salgado & Mario Alan Albarran Guerrero</h3>
-                            <h3 className='LocationContainer_text_info_Mob'>Araceli & Mario Alan</h3>
+                            <h3 className='LocationContainer_text_info_Mob'>Araceli & Alan</h3>
                         </div>
                         <div className='LocationContainer_text_info_padres'>
                             <section>
@@ -234,7 +227,7 @@ function Body({ reproduciendo, toggleMusica }) {
                 </picture>
             </section>
             <section className='GiftTableContainer' data-aos="zoom-in">
-                <h2>Tu presencia será el mejor regalo. Aún así, si te nace contribuir a nuestro nuevo capítulo, aquí está nuestra mesa de regalos</h2>
+                <h2>¡Tu presencia será el mejor regalo! Si gustas regalarnos algún obsequio, nuestra mesa de regalos puede ser una opción.</h2>
                 <a className="BtnExternoGlobal" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51711361" target='_blank'>Ver mesa de regalos</a>
                 <div className='GiftTableContainer_grid'>
                     <div className='GiftTableContainer_gridItem'>

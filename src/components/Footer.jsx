@@ -9,7 +9,7 @@ function Footer() {
       <picture>
         <img src={bg} alt="bg footer" />
       </picture>
-      <h2>&copy; By <a href="https://portafolio-ulisesurbina.netlify.app/" target="_blank">Ulises Urbina Maldonado</a></h2>
+      <h2>&copy; By <a href="https://portafolio-ulisesurbina.netlify.app/" target="_blank">Ulises U.</a></h2>
       <a href="https://www.linkedin.com/in/ulisesurbina111/" target='_blank'><img className='ImgLinkedin' src={linkedin} alt='linkedin'/></a>
     </div>
   )
