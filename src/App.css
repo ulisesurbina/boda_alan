@@ -81,7 +81,8 @@
   padding: 0 0.6rem;
 }
 .PrincipalTitle {
-  font-family: 'Great Vibes', cursive;
+  /* font-family: 'Great Vibes', cursive; */
+  font-family: "Dancing Script", cursive;
   font-size: 4vw;
   line-height: 4.5vw;
   font-weight: bold;
@@ -114,7 +115,8 @@
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   & h2 {
-    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: "Dancing Script", cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
@@ -132,7 +134,6 @@
     flex-direction: column;
     gap: 1rem;
     & h5 {
-      /* font-family: 'Great Vibes', cursive; */
       font-size: 2.2vw;
       line-height: 2.7vw;
       display: flex;
@@ -174,12 +175,14 @@
   margin: 5% auto 12% auto;
   text-align: center;
   & h2 {
-    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: "Dancing Script", cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
   & h3 {
-    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: "Dancing Script", cursive;
     font-size: 3vw;
     line-height: 3.5vw;
   }
@@ -311,7 +314,8 @@
       gap: 1rem;
       & .LocationContainer_text_info_Mob {
         display: none;
-        font-family: 'Great Vibes', cursive;  
+        /* font-family: 'Great Vibes', cursive; */
+        font-family: "Dancing Script", cursive;
       }
       & .LocationContainer_text_info_padres {
         flex-direction: row;
@@ -331,7 +335,8 @@
           line-height: 4.3vw;
         }
         & h3 {
-          font-family: 'Great Vibes', cursive;  
+          /* font-family: 'Great Vibes', cursive; */
+          font-family: "Dancing Script", cursive;
           font-size: 3.2vw;
           line-height: 3.7vw;
           font-weight: 500;
@@ -353,7 +358,8 @@
       }
     }
     & h2 {
-      font-family: 'Great Vibes', cursive;
+      /* font-family: 'Great Vibes', cursive; */
+      font-family: "Dancing Script", cursive;
       font-size: 3.8vw;
       line-height: 4.3vw;
       text-align: center;
@@ -408,7 +414,8 @@
       flex-direction: column;
       gap: 1rem;
       & h2 {
-        font-family: 'Great Vibes', cursive;
+        /* font-family: 'Great Vibes', cursive; */
+        font-family: "Dancing Script", cursive;
         font-size: 3.5vw;
         line-height: 4vw;
       }
@@ -452,7 +459,8 @@
   text-align: center;
   gap: 1.5rem;
   & h2 {
-    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: "Dancing Script", cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
@@ -499,7 +507,8 @@
   overflow: hidden;
   cursor: pointer;
   z-index: 1;
-  font-family: 'Great Vibes', cursive;
+  /* font-family: 'Great Vibes', cursive; */
+  font-family: "Dancing Script", cursive;
   font-weight: 400;
   font-size: clamp(1.5rem, 2.2vw, 2.5rem);
   color: var(--color);
@@ -547,7 +556,8 @@
   flex-direction: column;
   gap: 1rem;
   & h2 {
-    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: "Dancing Script", cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
@@ -603,7 +613,8 @@
         line-height: 2.2vw;
       }
       & h3 {
-        font-family: 'Great Vibes', cursive;
+        /* font-family: 'Great Vibes', cursive; */
+        font-family: "Dancing Script", cursive;
         font-size: 2.5vw;
         line-height: 3vw;
       }
@@ -616,7 +627,8 @@
   margin: 8% auto;
   text-align: center;
   & h2 {
-    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: "Dancing Script", cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }
@@ -705,7 +717,8 @@
     width: 65%;
   }
   & h2 {
-    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: "Dancing Script", cursive;
     font-size: 3.5vw;
     line-height: 4vw;
   }

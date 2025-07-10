@@ -28,7 +28,7 @@ function Body({ reproduciendo, toggleMusica }) {
         apellidos: '',
         telefono: '',
         correo: '',
-        invitados: '1',
+        invitados: '',
         dudas: ''
     });
     const [isLoading, setIsLoading] = useState(false);
@@ -101,12 +101,12 @@ function Body({ reproduciendo, toggleMusica }) {
                 <p>El amor verdadero no es solamente encontrar a la persona indicada, sino ser la persona indicada. <br /> Después de cinco años juntos, hemos decidido dar el siguiente paso.</p>
                 <p>Te invitamos a ser parte de este momento único en nuestras vidas.</p>
                 <h3>Queremos que este momento tan especial lo disfrutes tanto como nosotros, por eso hemos decidido que el evento sea solo para adultos.</h3>
-                <div className='HistoryContainer_sectionQR'>
+                {/* <div className='HistoryContainer_sectionQR'>
                     <p>Ayudanos compartiendo tu recuerdo de la boda</p>
                     <picture className='HistoryContainer_qrDot'>
                         <img src={qr_dot} alt="qr dot memories" />
                     </picture>
-                </div>
+                </div> */}
                 <picture className='HistoryContainer_img'>
                     <img src={imgBody1} alt="imagen o video" />
                 </picture>
@@ -247,7 +247,7 @@ function Body({ reproduciendo, toggleMusica }) {
                             </Step>
                             <Step>
                                 <p><b>El evento es privado, no se puede acceder sin registro ni invitación</b></p>
-                                <p>* Pueden surgir cambios sin previo aviso</p>
+                                <p>* Los invitados serán autorizados por los novios</p>
                                 <p><b>Ingresa los datos solicitados</b></p>
                                 <input 
                                     placeholder="Nombre"  
