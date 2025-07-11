@@ -13,8 +13,11 @@ function LandingItinerario() {
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.964650124654!2d-98.89754769999999!3d19.477072900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6ee8368ee63%3A0x43ce9bb80abc8574!2sParroquia%20de%20San%20Bernardino%20de%20Siena!5e1!3m2!1sen!2smx!4v1750053050182!5m2!1sen!2smx"
   },
   {
-    title: "Ceremonia Cívica",
-    time: "17:00 - 17:30 hrs"
+    title: "Ceremonia Cívil",
+    time: "17:00 - 17:30 hrs",
+    mapTitle: "Hacienda de los Ángeles",
+    mapSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.3378531744365!2d-98.92332909999999!3d19.499595799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6788ce8df21%3A0x41a0ce88fc184fa1!2sHacienda%20de%20los%20Angeles!5e1!3m2!1sen!2smx!4v1750052896568!5m2!1sen!2smx"
   },
   {
     title: "Recepción en Jardín",
