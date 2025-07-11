@@ -162,7 +162,7 @@
 @media screen and (max-width: 400px) {
     .NavbarContainer__principal {
         & picture {
-            width: 15%;
+            width: 12%;
         }
     }
 
