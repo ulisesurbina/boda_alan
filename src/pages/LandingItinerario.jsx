@@ -2,6 +2,11 @@ import '../styles/Pages.css';
 
 import { motion } from "framer-motion";
 
+import anillosWelcome from '../assets/rings.webp'
+import cena from '../assets/cena.webp'
+import closed from '../assets/closed.webp'
+import party from '../assets/party.webp'
+
 function LandingItinerario() {
 
   const events = [
@@ -28,19 +33,23 @@ function LandingItinerario() {
   },
   {
     title: "Inicio del Evento en Jardín",
-    time: "18:00 hrs"
+    time: "18:00 hrs",
+    img: anillosWelcome
   },
   {
     title: "Cena",
-    time: "18:30 - 19:30 hrs"
+    time: "18:30 - 19:30 hrs",
+    img: cena
   },
   {
     title: "Fiesta",
-    time: "19:30 - 03:00 hrs"
+    time: "19:30 - 03:00 hrs",
+    img: party
   },
   {
     title: "Fin del Evento en Jardín",
-    time: "03:00 hrs"
+    time: "03:00 hrs",
+    img: closed
   },
   {
     title: "After Party",
@@ -60,6 +69,19 @@ function LandingItinerario() {
             <div className="event-card" key={index}>
               <h3 className="event-title">{event.title}</h3>
               <p className="event-time">{event.time}</p>
+              {event.img && (
+                <div className="image-icon">
+                  <motion.img
+                    src={event.img}
+                    alt={event.title}
+                    width="100%"
+                    height="100%"
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 1.2, times: [0, 0.3, 1], ease: "easeInOut", repeat: Infinity, repeatType: "loop" }}
+                  />
+                </div>
+              )}
               {event.mapSrc && (
                 <div className="map-container">
                   <iframe
