@@ -13,7 +13,7 @@ function LandingItinerario() {
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.964650124654!2d-98.89754769999999!3d19.477072900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e6ee8368ee63%3A0x43ce9bb80abc8574!2sParroquia%20de%20San%20Bernardino%20de%20Siena!5e1!3m2!1sen!2smx!4v1750053050182!5m2!1sen!2smx"
   },
   {
-    title: "Ceremonia Cívil",
+    title: "Ceremonia Civil",
     time: "17:00 - 17:30 hrs",
     mapTitle: "Hacienda de los Ángeles",
     mapSrc:
