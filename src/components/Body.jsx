@@ -179,8 +179,8 @@ function Body({ reproduciendo, toggleMusica }) {
                 <div className='LocationContainer_text' data-aos="zoom-in-up">
                     <section className='LocationContainer_text_info'>
                         <div>
-                            <h3 className='LocationContainer_text_info_Web'>Araceli Zuleima Reyes Salgado & Mario Alan Albarran Guerrero</h3>
-                            <h3 className='LocationContainer_text_info_Mob'>Araceli & Alan</h3>
+                            <h3 className='LocationContainer_text_info_Web'>Araceli Zuleima Reyes Salgado &nbsp;&&nbsp; Mario Alan Albarran Guerrero</h3>
+                            <h3 className='LocationContainer_text_info_Mob'>Araceli &nbsp;&&nbsp; Alan</h3>
                         </div>
                         <div className='LocationContainer_text_info_padres'>
                             <section>
@@ -257,7 +257,7 @@ function Body({ reproduciendo, toggleMusica }) {
                         </picture>
                         <p>Formal Elegante</p>
                         <p>Favor de evitar colores:</p>
-                        <h3>Blanco & Rojo </h3>
+                        <h3>Blanco &nbsp;&&nbsp; Rojo </h3>
                     </section>
                 </div>
             </section>
