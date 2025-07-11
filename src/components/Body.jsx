@@ -227,7 +227,7 @@ function Body({ reproduciendo, toggleMusica }) {
                 </picture>
             </section>
             <section className='GiftTableContainer' data-aos="zoom-in">
-                <h2>¡Tu presencia será nuestro gran regalo! Si gustas apoyarnos con algún obsequio, nuestra mesa de regalos puede ser una opción.</h2>
+                <h2>¡Tu presencia será nuestro mejor regalo! Si gustas apoyarnos con algún obsequio, nuestra mesa de regalos puede ser una opción.</h2>
                 <a className="BtnExternoGlobal" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51711361" target='_blank'>Ver mesa de regalos</a>
                 <div className='GiftTableContainer_grid'>
                     <div className='GiftTableContainer_gridItem'>
